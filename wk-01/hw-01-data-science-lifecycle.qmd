@@ -138,4 +138,13 @@ ggplot(data = global_waste_data_kg_year,
 
 # Task 6: Complete assignment
 
-1.  Download the rendered PDF and send it by email to the course instructor
+**See screenshot below or follow these steps**
+
+1.  Open the 'Files' tab in the bottom right window
+2.  Navigate to the generated PDF: `wk-01/hw-01-data-science-lifecycle.pdf`
+3.  Tick the box next to the PDF file
+4.  Click on 'More' (the blue gear icon) in the menu bar above the file manager
+5.  Click on 'Export' and download the PDF file
+6.  Send the PDF by email to the course instructor
+
+![](img/export-file-from-rscloud.png)
