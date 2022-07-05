@@ -2,13 +2,22 @@
 title: "RStudio Setup"
 format: html
 editor: visual
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Quarto
 
-This is a quarto document. It contains text as a narrative and code. Text can be **edit** using the GUI tools or using markdown markup syntax.
+This is a quarto document. It contains text as a narrative and code. Text can be formatted using the GUI tools in visual editing mode or using markdown markup syntax in source editing mode.
 
 ```{r}
+
 1 + 1
+
+sqrt(49)
+
+my_sum <- sum(1, 2)
+
+my_sum
 
 ```
