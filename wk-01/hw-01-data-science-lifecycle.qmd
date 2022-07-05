@@ -1,7 +1,7 @@
 ---
 title: "Week 01- Homework"
 subtitle: "Data Science Lifecycle"
-format: pdf
+format: html
 editor: visual
 execute:
   echo: true
@@ -115,7 +115,6 @@ global_waste_data_small <- global_waste_data |>
 
 <!--# Remove this comment and write your text here -->
 
-
 ```{r}
 #| eval: false
 
@@ -144,17 +143,17 @@ global_waste_data_kg_year <- ___ |>
 
 7.  Next to the code-chunk option `#| eval:` change the value from `false` to `true`
 
-8. Render and fix any errors
+8.  Render and fix any errors
 
 9.  Look at the plot that you created and once again describe what the `mutate()` function achieved in the previous task
 
 <!--# Remove this comment and write your text here -->
 
-10.  Describe in your own words what the 'color' argument inside the `aes()` does
+10. Describe in your own words what the 'color' argument inside the `aes()` does
 
 <!--# Remove this comment and write your text here -->
 
-11.  Describe in your own words what the `labs()` function does
+11. Describe in your own words what the `labs()` function does
 
 <!--# Remove this comment and write your text here -->
 
