@@ -22,7 +22,7 @@ Data can be imported from many different sources. In this exercise, we import da
 
 ## Gapminder data
 
-The data is an [excerpt of the Gapminder data](https://www.gapminder.org/data/documentation/) on life expectancy, GDP per capita, and population by country. Compiled for the purpose of teaching with data until 2007. It is not a definitive source of socioeconomic data and it is not updated [@bryan2017].
+The data is an [excerpt of the Gapminder data](https://www.gapminder.org/data/documentation/) on life expectancy, GDP per capita, and population by country. Compiled for the purpose of teaching with data until 2007. [It is not a definitive source of socioeconomic data and it is not updated](https://github.com/jennybc/gapminder).
 
 ```{r}
 
@@ -47,6 +47,7 @@ Once you imported the data, the next step in any data science lifecycle is the t
 # Take a look at the data
 
 gapminder 
+str(gapminder)
 
 ```
 
@@ -92,7 +93,7 @@ gapminder_summary_continent <- gapminder_yr_2007  |>
 
 ## Gapminder data
 
-Africa has the lowst life expectancy and greatest spread in life expectancy globally (compare @tbl-median-continent and @fig-boxplot-continent).
+Africa has the lowest life expectancy and greatest spread in life expectancy globally (compare @tbl-median-continent and @fig-boxplot-continent).
 
 **Goal:** Use a boxplot to visualize the median life expectancy by continent in 2007. In the same plot, use a jitter plot to visualise the spread of life expectancy for all countries.
 
@@ -151,6 +152,4 @@ gapminder_summary_continent |>
 
 Your rendered html file is a great data communication product. You will learn a bit later in the course how you could make it accessible to others as a website, but you could also just share the HTML file with a collaborator or render the document to the 'pdf' or 'docx' formats.
 
-**Finale:** Render, Add, Commit, and Push changes back to GitHub.
-
-# References
+**Finale:** Render to PDF, download the PDF.
