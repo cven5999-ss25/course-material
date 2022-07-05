@@ -14,6 +14,5 @@ You can find the complete documentation on the [Quarto website](https://quarto.o
 
 ## R code-chunk
 
-- Execute code line by line using 'Ctrl / Cmd + Enter' on your keyboard
-- Execute the whole code-chunk by clicking on the green play bottom in the top right corner of the code chunk
-
+-   Execute code line by line using 'Ctrl / Cmd + Enter' on your keyboard
+-   Execute the whole code-chunk by clicking on the green play bottom in the top right corner of the code chunk
