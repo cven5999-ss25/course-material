@@ -3,6 +3,7 @@ title: "Live Coding - Data Science Lifecycle"
 format: 
   pdf: default
   docx: default
+  revealjs: default
   html: 
     toc: true
 editor: visual
@@ -107,7 +108,7 @@ library(ggplot2)
 
 # Step 2: Write ggplot main function with data and mapping.
 
-# Step 3: Add boxplot and show how to google for removing outliers
+# Step 3: Add boxplot 
 
 # Step 4: Add jitterplot with 0.1 width, 1/4 alpha, 3 size
 
@@ -118,7 +119,7 @@ library(ggplot2)
 ggplot(data = gapminder_yr_2007, 
        mapping = aes(x = continent, 
                      y = lifeExp)) +
-  geom_boxplot(outlier.shape = NA) + # google this
+  geom_boxplot() + # google this
   geom_jitter(width = 0.1, alpha = 1/4, size = 3) +
   labs(x = NULL,
        y = "life expectancy") +
@@ -138,10 +139,7 @@ gapminder_summary_continent
 
 # Step 2: Write summary table with kable function 
 
-gapminder_summary_continent |> 
-  kable()
-
-# Step 2: Write summary table with kable function and digits = 1
+# Step 3: Write summary table with kable function and digits = 1
 
 gapminder_summary_continent |> 
   kable(digits = 1)
@@ -150,6 +148,6 @@ gapminder_summary_continent |>
 
 # Data communication
 
-Your rendered html file is a great data communication product. You will learn a bit later in the course how you could make it accessible to others as a website, but you could also just share the HTML file with a collaborator or render the document to the 'pdf' or 'docx' formats.
+Your rendered html file is a great data communication product. You will learn a bit later in the course how you could make it accessible to others as a website, but you could also just download and share the html file with a collaborator or render the document to 'pdf' or 'docx' formats.
 
-**Finale:** Render to PDF, download the PDF.
+**Finale:** Render to PDF, download the PDF. Render to DOCX. Render to revealjs.
