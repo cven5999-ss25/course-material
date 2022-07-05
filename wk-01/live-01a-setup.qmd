@@ -17,14 +17,3 @@ You can find the complete documentation on the [Quarto website](https://quarto.o
 - Execute code line by line using 'Ctrl / Cmd + Enter' on your keyboard
 - Execute the whole code-chunk by clicking on the green play bottom in the top right corner of the code chunk
 
-```{r}
-
-1 + 1
-
-sqrt(49)
-
-my_sum <- sum(1, 2)
-
-my_sum
-
-```
