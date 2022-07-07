@@ -39,5 +39,7 @@ vignettes/*.pdf
 .Renviron
 
 # Mac files
-
 .DS_Store
+
+# Solutions
+*-solutions.qmd

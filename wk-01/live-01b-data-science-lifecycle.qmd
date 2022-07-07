@@ -1,0 +1,73 @@
+---
+title: "Live Coding - Data Science Lifecycle"
+format: html
+editor: visual
+self-contained: true
+execute:
+  echo: true
+  warning: false
+editor_options: 
+  chunk_output_type: console
+---
+
+# Data import
+
+Data can be imported from many different sources. In this exercise, we import data from:
+
+1.  an R Package that is loaded via the `library()` function.
+
+## Gapminder data
+
+The data is an [excerpt of the Gapminder data](https://www.gapminder.org/data/documentation/) on life expectancy, GDP per capita, and population by country. Compiled for the purpose of teaching with data until 2007. [It is not a definitive source of socioeconomic data and it is not updated](https://github.com/jennybc/gapminder).
+
+
+
+# Data tidying
+
+Once you imported the data, the next step in any data science lifecycle is the tidying of data. It's about bringing your data into a consistent structure that let's you focus on the analysis. Depending on how messy the data structure is, this can be tedious task and take up a great part of the data science lifecycle process.
+
+## Gapminder data
+
+
+
+# Data transformation
+
+Once your data is tidy, a common first step is to transform it. This includes:
+
+1.  narrowing in on what interests you (e.g. all people without toilets in one district, or all data from last year)
+
+2.  creating new variables from existing (like toilet density, as in number of people per toilet)
+
+3.  calculating summary statistics (like counts or the mean)
+
+## Gapminder data
+
+**Goal:** Calculate the median life expectancy at birth by continent for 2007.
+
+
+
+# Data visualisation (and tables)
+
+## Gapminder data
+
+Africa has the lowest life expectancy and greatest spread in life expectancy globally (compare @tbl-median-continent and @fig-boxplot-continent).
+
+**Goal:** Use a boxplot to visualize the median life expectancy by continent in 2007. In the same plot, use a jitter plot to visualise the spread of life expectancy for all countries.
+
+```{r}
+#| label: fig-boxplot-continent
+#| fig-cap: "Median life expectancy by continent in 2007. Each dot represents one individual country."
+
+
+```
+
+```{r}
+#| label: tbl-median-continent
+#| tbl-cap: "Median life expectancy by continent in 2007."
+
+
+```
+
+# Data communication
+
+Your rendered html file is a great data communication product. You will learn a bit later in the course how you could make it accessible to others as a website, but you could also just download and share the html file with a collaborator or render the document to 'pdf' or 'docx' formats.
