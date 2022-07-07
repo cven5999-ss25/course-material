@@ -108,7 +108,7 @@ ggplot(data = global_waste_data_kg_year,
 
 ```{r}
 
-ggplot(data = global_waste_data_kg_year,
+plot <- ggplot(data = global_waste_data_kg_year,
        mapping = aes(x = gdp, 
                      y = capita_kg_year,
                      color = income_id,
@@ -160,8 +160,10 @@ ggplot(data = global_waste_data_kg_year,
   geom_point() +
   
   # https://scales.r-lib.org/reference/label_log.html
-  scale_x_log10(labels = scales::label_log(), limits = c(100, 150000))  +
+  
+  scale_x_log10(labels = scales::label_log(), limits = c(800, 150000))  +
   scale_y_continuous(breaks = seq(0, 1400, 200), limits = c(0, 1400)) +
+
   scale_color_brewer(type = "qual", palette = "Set2")
 
 ```
@@ -180,15 +182,17 @@ ggplot(data = global_waste_data_kg_year,
   geom_point() +
   
   # https://scales.r-lib.org/reference/label_log.html
-  scale_x_log10(labels = scales::label_log(), limits = c(100, 150000))  +
+  
+  scale_x_log10(labels = scales::label_log(), limits = c(800, 150000))  +
   scale_y_continuous(breaks = seq(0, 1400, 200), limits = c(0, 1400)) +
+
   scale_color_manual(values = my_colors)
 
 ```
 
 ## Geoms
 
-Aesthetic mappings are typically defined within the `ggplot()` function. Everyone geom that follows will use the same aesthetic mappings to visualise the data.
+Aesthetic mappings are typically defined within the `ggplot()` function. Every geom that follows will use the same aesthetic mappings to visualise the data.
 
 ```{r}
 
@@ -201,8 +205,9 @@ ggplot(data = global_waste_data_kg_year,
   geom_smooth(method = "lm", se = FALSE) +
   
   # https://scales.r-lib.org/reference/label_log.html
-  scale_x_log10(labels = scales::label_log(), limits = c(100, 150000))  +
+  scale_x_log10(labels = scales::label_log(), limits = c(800, 150000))  +
   scale_y_continuous(breaks = seq(0, 1400, 200), limits = c(0, 1400)) +
+
   scale_color_manual(values = my_colors)
 
 ```
@@ -211,10 +216,8 @@ If we want to define a mapping for one geom only, then the aesthetic mappings mu
 
 ```{r}
 
-global_waste_data_kg_year_filter <- global_waste_data_kg_year %>% 
-  filter(capita_kg_year > 850 | 
-           country_name == "Switzerland" |
-           country_name == "Canada")
+global_waste_data_kg_year_filter <- global_waste_data_kg_year |> 
+  filter(country_name %in% c("United States", "Switzerland", "Ghana", "Turkey", "Nepal", "Kenya"))
 
 ggplot(data = global_waste_data_kg_year,
        mapping = aes(x = gdp, 
@@ -226,13 +229,12 @@ ggplot(data = global_waste_data_kg_year,
               se = FALSE, 
               color = "gray20", 
               linetype = "longdash") +
-  geom_text(data = global_waste_data_kg_year_filter,
-            mapping = aes(label = country_name), 
-            nudge_y = 50) +
+  geom_label(data = global_waste_data_kg_year_filter,
+            mapping = aes(label = country_name)) +
   
   # https://scales.r-lib.org/reference/label_log.html
-  scale_x_log10(labels = scales::label_log(), limits = c(100, 150000))  +
-  scale_y_continuous(breaks = seq(0, 1400, 200), limits = c(0, 1500)) +
+  scale_x_log10(labels = scales::label_log(), limits = c(800, 150000))  +
+  scale_y_continuous(breaks = seq(0, 1400, 200), limits = c(0, 1400)) +
   scale_color_manual(values = my_colors)
 
 
@@ -242,7 +244,6 @@ ggplot(data = global_waste_data_kg_year,
 
 ```{r}
 
-
 ggplot(data = global_waste_data_kg_year,
        mapping = aes(x = gdp, 
                      y = capita_kg_year)) +
@@ -253,12 +254,11 @@ ggplot(data = global_waste_data_kg_year,
               se = FALSE, 
               color = "gray20", 
               linetype = "longdash") +
-  geom_text(data = global_waste_data_kg_year_filter,
-            mapping = aes(label = country_name), 
-            nudge_y = 50) +
+  geom_label(data = global_waste_data_kg_year_filter,
+            mapping = aes(label = country_name)) +
   
   # https://scales.r-lib.org/reference/label_log.html
-  scale_x_log10(labels = scales::label_log(), limits = c(100, 150000))  +
+  scale_x_log10(labels = scales::label_log(), limits = c(800, 150000))  +
   scale_y_continuous(breaks = seq(0, 1400, 200), limits = c(0, 1400)) +
   scale_color_manual(values = my_colors) +
   labs(title = "Municipal Solid Waste Generation",
@@ -267,7 +267,7 @@ ggplot(data = global_waste_data_kg_year,
        y = "MSW generation pert capity (kg/yr)",
        color = "Income categories",
        shape = "Income categories",
-       caption = "Data: World Bank World Development Indicators and What a Waste Global Database."
+       caption = "Data: What a Waste Global Database."
   ) 
 
 
@@ -292,12 +292,11 @@ ggplot(data = global_waste_data_kg_year,
               se = FALSE, 
               color = "gray20", 
               linetype = "longdash") +
-  geom_text(data = global_waste_data_kg_year_filter,
-            mapping = aes(label = country_name), 
-            nudge_y = 50) +
+  geom_label(data = global_waste_data_kg_year_filter,
+            mapping = aes(label = country_name)) +
   
   # https://scales.r-lib.org/reference/label_log.html
-  scale_x_log10(labels = scales::label_log(), limits = c(100, 150000))  +
+  scale_x_log10(labels = scales::label_log(), limits = c(800, 150000))  +
   scale_y_continuous(breaks = seq(0, 1400, 200), limits = c(0, 1400)) +
   scale_color_manual(values = my_colors) +
   labs(title = "Municipal Solid Waste Generation",
@@ -306,7 +305,7 @@ ggplot(data = global_waste_data_kg_year,
        y = "MSW generation pert capity (kg/yr)",
        color = "Income categories",
        shape = "Income categories",
-       caption = "Data: World Bank World Development Indicators and What a Waste Global Database."
+       caption = "Data: What a Waste Global Database."
   ) +
   theme_minimal(base_size = 12, base_family = "Arial") +
   theme(legend.position = c(0.20, 0.80),
@@ -332,10 +331,10 @@ lmfit <- lm(capita_kg_year ~ gdp, data = global_waste_data_kg_year)
 
 summary(lmfit)
 
-tidy(lmfit) %>% 
+tidy(lmfit) |> 
   knitr::kable(digits = 2)
 
-glance(lmfit) %>% 
+glance(lmfit) |> 
   knitr::kable(digits = 2)
 
 
