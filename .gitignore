@@ -43,3 +43,6 @@ vignettes/*.pdf
 
 # Solutions
 *-solutions.qmd
+
+# directories
+resources
