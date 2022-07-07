@@ -22,14 +22,6 @@ library(readr)
 library(dplyr)
 library(ggplot2)
 
-# An R package to access the World Bank World Development Indicator timeseries
-
-library(WDI)
-
-# An R package for working with country codes
-
-library(countrycode)
-
 # An R Package to work with model outputs
 
 library(broom)
@@ -48,24 +40,7 @@ What a Waste is a global project to aggregate data on solid waste management fro
 
 # This code is copied from application exercise week 10
 
-global_waste_data <- read_csv("data/raw_data/country_level_data_0.csv")
-```
-
-## World Development Indicators (WDI)
-
-World Development Indicators (WDI) is the primary World Bank collection of development indicators, compiled from officially recognized international sources. It presents the most current and accurate global development data available, and includes national, regional and global estimates.
-
--   World Bank: https://databank.worldbank.org/source/world-development-indicators
--   GitHub repo: https://github.com/vincentarelbundock/WDI
--   R Package Documentation: http://vincentarelbundock.github.io/WDI/
-
-```{r}
-
-# Only walk through. No live coding.
-
-WDIsearch("GDP per capita ")
-
-gdp_data <- WDI(indicator = "NY.GDP.PCAP.CD", start = 2019, end = 2019) 
+global_waste_data <- read_csv(here::here("wk-02/data/country_level_data_0.csv"))
 
 ```
 
@@ -81,23 +56,12 @@ gdp_data <- WDI(indicator = "NY.GDP.PCAP.CD", start = 2019, end = 2019)
 global_waste_data_small <- global_waste_data %>% 
   select(country_name, 
          iso3c, 
-         income_id, 
+         income_id,
+         gdp, 
          total_msw_total_msw_generated_tons_year, 
          population_population_number_of_people) %>%  
   rename(msw_tons_year = total_msw_total_msw_generated_tons_year,
          population = population_population_number_of_people) 
-
-```
-
-## GDP data
-
-```{r}
-
-# Only walk through. No live coding.
-
-gdp_data_tidy <- gdp_data %>% 
-  as_tibble() %>% 
-  rename(gdp_capita = NY.GDP.PCAP.CD)
 
 ```
 
@@ -115,33 +79,10 @@ global_waste_data_kg_year <- global_waste_data_small %>%
   mutate(income_id = factor(income_id, 
                             levels = c("HIC", "UMC", "LMC", "LIC"))) %>% 
   # select relevant columns
-  select(country_name:income_id, capita_kg_year)
+  select(country_name:income_id, gdp, capita_kg_year)
 
 ```
 
-## GDP data
-
-```{r}
-
-# Only walk through. No live coding.
-
-gdp_data_join <- gdp_data_tidy %>%
-  mutate(iso3c = countrycode(iso2c, origin = "iso2c", destination = "iso3c")) %>% 
-  filter(!is.na(iso3c)) 
-
-```
-
-## Joining two datasets
-
-```{r}
-
-# Only walk through. No live coding.
-
-waste_gdp_data <- global_waste_data_kg_year %>% 
-  left_join(gdp_data_join) %>% 
-  select(country_name:capita_kg_year, gdp_capita, year)
-
-```
 
 # Data visualisation
 
@@ -158,8 +99,8 @@ Main aesthetic mappings:
 
 ```{r}
 
-ggplot(data = waste_gdp_data,
-       mapping = aes(x = gdp_capita, 
+ggplot(data = global_waste_data_kg_year,
+       mapping = aes(x = gdp,
                      y = capita_kg_year)) +
   geom_point()
 
@@ -167,8 +108,8 @@ ggplot(data = waste_gdp_data,
 
 ```{r}
 
-ggplot(data = waste_gdp_data,
-       mapping = aes(x = gdp_capita, 
+ggplot(data = global_waste_data_kg_year,
+       mapping = aes(x = gdp, 
                      y = capita_kg_year,
                      color = income_id,
                      shape = income_id)) +
@@ -184,8 +125,8 @@ All functions that adapt the scale start with `scale_` followed by the aesthetic
 
 ```{r}
 
-ggplot(data = waste_gdp_data,
-       mapping = aes(x = gdp_capita, 
+ggplot(data = global_waste_data_kg_year,
+       mapping = aes(x = gdp, 
                      y = capita_kg_year,
                      color = income_id,
                      shape = income_id)) +
@@ -193,7 +134,7 @@ ggplot(data = waste_gdp_data,
   
   # https://scales.r-lib.org/reference/label_log.html
   
-  scale_x_log10(labels = scales::label_log(), limits = c(100, 150000))  +
+  scale_x_log10(labels = scales::label_log(), limits = c(800, 150000))  +
   scale_y_continuous(breaks = seq(0, 1400, 200), limits = c(0, 1400)) 
 
 
@@ -211,8 +152,8 @@ seq(from = 0, to = 1400, by = 200)
 
 ```{r}
 
-ggplot(data = waste_gdp_data,
-       mapping = aes(x = gdp_capita, 
+ggplot(data = global_waste_data_kg_year,
+       mapping = aes(x = gdp, 
                      y = capita_kg_year,
                      color = income_id,
                      shape = income_id)) +
@@ -231,8 +172,8 @@ ggplot(data = waste_gdp_data,
 
 my_colors <- c("#ED6D37", "#901C6C", "#18A5C5", "#A6CE8F")
 
-ggplot(data = waste_gdp_data,
-       mapping = aes(x = gdp_capita, 
+ggplot(data = global_waste_data_kg_year,
+       mapping = aes(x = gdp, 
                      y = capita_kg_year,
                      color = income_id,
                      shape = income_id)) +
@@ -251,8 +192,8 @@ Aesthetic mappings are typically defined within the `ggplot()` function. Everyon
 
 ```{r}
 
-ggplot(data = waste_gdp_data,
-       mapping = aes(x = gdp_capita, 
+ggplot(data = global_waste_data_kg_year,
+       mapping = aes(x = gdp, 
                      y = capita_kg_year,
                      color = income_id,
                      shape = income_id)) +
@@ -270,13 +211,13 @@ If we want to define a mapping for one geom only, then the aesthetic mappings mu
 
 ```{r}
 
-waste_gdp_data_filter <- waste_gdp_data %>% 
+global_waste_data_kg_year_filter <- global_waste_data_kg_year %>% 
   filter(capita_kg_year > 850 | 
            country_name == "Switzerland" |
            country_name == "Canada")
 
-ggplot(data = waste_gdp_data,
-       mapping = aes(x = gdp_capita, 
+ggplot(data = global_waste_data_kg_year,
+       mapping = aes(x = gdp, 
                      y = capita_kg_year)) +
   geom_point(size = 3, alpha = 3/4, 
              mapping = aes(color = income_id,
@@ -285,7 +226,7 @@ ggplot(data = waste_gdp_data,
               se = FALSE, 
               color = "gray20", 
               linetype = "longdash") +
-  geom_text(data = waste_gdp_data_filter,
+  geom_text(data = global_waste_data_kg_year_filter,
             mapping = aes(label = country_name), 
             nudge_y = 50) +
   
@@ -302,8 +243,8 @@ ggplot(data = waste_gdp_data,
 ```{r}
 
 
-ggplot(data = waste_gdp_data,
-       mapping = aes(x = gdp_capita, 
+ggplot(data = global_waste_data_kg_year,
+       mapping = aes(x = gdp, 
                      y = capita_kg_year)) +
   geom_point(size = 3, alpha = 3/4, 
              mapping = aes(color = income_id,
@@ -312,7 +253,7 @@ ggplot(data = waste_gdp_data,
               se = FALSE, 
               color = "gray20", 
               linetype = "longdash") +
-  geom_text(data = waste_gdp_data_filter,
+  geom_text(data = global_waste_data_kg_year_filter,
             mapping = aes(label = country_name), 
             nudge_y = 50) +
   
@@ -341,8 +282,8 @@ A reference to @fig-plot-waste-gdp.
 #| label: fig-plot-waste-gdp
 #| fig-cap: "Global Municipal Solid Waste generation over GPD per capita, illustrated by defined income groups."
 
-ggplot(data = waste_gdp_data,
-       mapping = aes(x = gdp_capita, 
+ggplot(data = global_waste_data_kg_year,
+       mapping = aes(x = gdp, 
                      y = capita_kg_year)) +
   geom_point(size = 3, alpha = 3/4, 
              mapping = aes(color = income_id,
@@ -351,7 +292,7 @@ ggplot(data = waste_gdp_data,
               se = FALSE, 
               color = "gray20", 
               linetype = "longdash") +
-  geom_text(data = waste_gdp_data_filter,
+  geom_text(data = global_waste_data_kg_year_filter,
             mapping = aes(label = country_name), 
             nudge_y = 50) +
   
@@ -387,7 +328,7 @@ https://broom.tidymodels.org/articles/broom.html
 
 ```{r}
 
-lmfit <- lm(capita_kg_year ~ gdp_capita, data = waste_gdp_data)
+lmfit <- lm(capita_kg_year ~ gdp, data = global_waste_data_kg_year)
 
 summary(lmfit)
 
