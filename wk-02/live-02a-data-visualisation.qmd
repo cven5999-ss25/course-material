@@ -53,13 +53,13 @@ global_waste_data <- read_csv(here::here("wk-02/data/country_level_data_0.csv"))
 # Only walk through. No live coding.
 # This code is copied from application exercise week 10
 
-global_waste_data_small <- global_waste_data %>% 
+global_waste_data_small <- global_waste_data |> 
   select(country_name, 
          iso3c, 
          income_id,
          gdp, 
          total_msw_total_msw_generated_tons_year, 
-         population_population_number_of_people) %>%  
+         population_population_number_of_people) |>  
   rename(msw_tons_year = total_msw_total_msw_generated_tons_year,
          population = population_population_number_of_people) 
 
@@ -74,10 +74,10 @@ global_waste_data_small <- global_waste_data %>%
 # This code is copied from application exercise week 10
 # Only walk through. No live coding.
 
-global_waste_data_kg_year <- global_waste_data_small %>% 
-  mutate(capita_kg_year = msw_tons_year / population * 1000) %>% 
+global_waste_data_kg_year <- global_waste_data_small |> 
+  mutate(capita_kg_year = msw_tons_year / population * 1000) |> 
   mutate(income_id = factor(income_id, 
-                            levels = c("HIC", "UMC", "LMC", "LIC"))) %>% 
+                            levels = c("HIC", "UMC", "LMC", "LIC"))) |>  
   # select relevant columns
   select(country_name:income_id, gdp, capita_kg_year)
 
