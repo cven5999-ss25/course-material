@@ -46,3 +46,6 @@ vignettes/*.pdf
 
 # directories
 resources
+
+# video files
+*.mp4
