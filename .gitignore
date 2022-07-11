@@ -43,3 +43,9 @@ vignettes/*.pdf
 
 # Solutions
 *-solutions.qmd
+
+# directories
+resources
+
+# video files
+*.mp4

@@ -1,0 +1,46 @@
+---
+title: "Week 02 - Homework Assignment"
+format: html
+self-contained: true
+editor: visual
+---
+
+# Project data
+
+Working with data is most effective when it is data that you are interested in yourself. Designing a research study is beyond the scope of this course, but maybe you already have data available that you want to analyse. Otherwise, there is plenty of data available online that you could use for a data analysis project.
+
+Some examples of popular and extensive Open Data repositories are:
+
+-   World Bank Open Data: https://data.worldbank.org/
+-   The Humanitarian Data Exchange: https://data.humdata.org/
+-   Harvard Dataverse: https://dataverse.harvard.edu/
+-   Figshare: https://figshare.com/
+-   Zenodo: https://zenodo.org/
+
+# Task 1: Identify data
+
+1.  Identify data that you are interested in. The requirements are:
+
+-   small (\< 5 MB)
+-   in tabular format (ideally CSV file format, but XLSX is also okay)
+-   relevant to the wider topics of Global Engineering, Development, etc.
+
+2.  Describe why you have chosen this data
+
+<!--# Delete this comment and add your answer here  -->
+
+# Task 2: Upload data
+
+Upload your data to the "course-material" project on RStudio Cloud.
+
+\*\*See screenshot below or follow these steps\*\*
+
+1.  Open the 'Files' tab in the bottom right window
+2.  Click on 'Upload' (the file icon with the yellow arrow) in the menu bar above the file manager
+3.  Under 'Target directory', click on 'Browse...' and navigate to the 'data' folder
+4.  Under 'File to upload', click on 'Browse...' and navigate to the file that contains the data you have identified
+5.  Click on 'OK' and download the PDF file
+
+![](img/upload-data.png)
+
+
