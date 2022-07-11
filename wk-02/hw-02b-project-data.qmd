@@ -1,0 +1,32 @@
+---
+title: "Programming Exercise - Data Visualisation"
+author: "Lars Schöbitz"
+date: today
+format:
+  pdf:
+    toc: true
+editor: visual
+execute:
+  echo: true
+  warning: false
+editor_options: 
+  chunk_output_type: console
+---
+
+# Task 0: Load R packages
+
+1.  Add a new code-chunk below the three outlined steps for Task 0
+
+2.  Load the `gapminder`, `ggplot2` and `dplyr` R Packages
+
+3.  Run the code contained in the code-chunk and fix any errors
+
+
+# Task 6: Complete assignment
+
+1.  Open the 'Files' tab in the bottom right window
+2.  Navigate to the generated PDF: `wk-02/hw-02-data-visualisation.pdf`
+3.  Tick the box next to the PDF file
+4.  Click on 'More' (the blue gear icon) in the menu bar above the file manager
+5.  Click on 'Export' and download the PDF file
+6.  Send the PDF by email to the course instructor

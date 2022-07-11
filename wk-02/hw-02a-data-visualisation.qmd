@@ -1,11 +1,13 @@
 ---
 title: "Programming Exercise - Data Visualisation"
-format: html
+author: "Lars Schöbitz"
+date: today
+format:
+  pdf:
+    toc: true
 editor: visual
-bibliography: references.bib
 execute:
   echo: true
-  message: false
   warning: false
 editor_options: 
   chunk_output_type: console
@@ -37,7 +39,7 @@ The data is tidy and we can directly work with it. The step is here as reminder.
 
 2.  Start with the `gapminder` object
 
-3.  Add the pipe operator (`%>%`) and on a new line use the `filter()` function to narrow down the data for observation of the year 2007
+3.  Add the pipe operator (`|>`) and on a new line use the `filter()` function to narrow down the data for observation of the year 2007
 
 4.  Use the assignment operator (`<-`) to assign the data to an object named `gapminder_yr_2007`
 
@@ -45,16 +47,14 @@ The data is tidy and we can directly work with it. The step is here as reminder.
 
 6.  Next to the code-chunk option `#| eval:` change the value from `false` to `true`
 
-7.  Render
-
-8.  Add, Commit, Push
+7. Render the document and fix any errors
 
 ```{r}
 #| eval: false
-
+ 
 # A subset only for 2007
 
-___ <- ___ %>% 
+___ <- ___ |> 
   ___(___ == ___)
 ```
 
@@ -66,9 +66,9 @@ ___ <- ___ %>%
 
 2.  Start with the `gapminder_yr_2007` object
 
-3.  Add the pipe operator (`%>%`) and on a new line use the `group_by()` function to group the following operations by the variable continent.
+3.  Add the pipe operator (`|>`) and on a new line use the `group_by()` function to group the following operations by the variable continent.
 
-4.  Add the pipe operator (`%>%`) and on a new line use the `summarise()` function to summarise the data for the count and the median life expectancy.
+4.  Add the pipe operator (`|>`) and on a new line use the `summarise()` function to summarise the data for frequency and the median life expectancy.
 
 5.  Use the assignment operator (`<-`) to assign the data to an object named `gapminder_summary_continent_2007`
 
@@ -76,17 +76,15 @@ ___ <- ___ %>%
 
 7.  Next to the code-chunk option `#| eval:` change the value from `false` to `true`
 
-8.  Render
-
-9.  Add, Commit, Push
+8.  Render the document and fix any errors
 
 ```{r}
 #| eval: false
 
 # A subset for median life expectancy in 2007 by continent
 
-gapminder_summary_continent_2007 <- gapminder_yr_2007 %>% 
-  ___(___) %>% 
+gapminder_summary_continent_2007 <- gapminder_yr_2007 |> 
+  ___(___) |> 
   ___(
     count = n(),
     lifeExp = median(___)
@@ -102,9 +100,9 @@ gapminder_summary_continent_2007 <- gapminder_yr_2007 %>%
 
 2.  Start with the `gapminder` object
 
-3.  Add the pipe operator (`%>%`) and on a new line use the `group_by()` function to group the following operations by the variables continent and year.
+3.  Add the pipe operator (`|>`) and on a new line use the `group_by()` function to group the following operations by the variables continent and year.
 
-4.  Add the pipe operator (`%>%`) and on a new line use the `summarise()` function to summarise the data for the median life expectancy and name the new colum 'lifeExp'.
+4.  Add the pipe operator (`|>`) and on a new line use the `summarise()` function to summarise the data for the median life expectancy and name the new colum 'lifeExp'.
 
 5.  Use the assignment operator (`<-`) to assign the data to an object named `gapminder_summary_continent_year`
 
@@ -112,17 +110,16 @@ gapminder_summary_continent_2007 <- gapminder_yr_2007 %>%
 
 7.  Next to the code-chunk option `#| eval:` change the value from `false` to `true`
 
-8.  Render
+8.  Render the document and fix any errors
 
-9.  Add, Commit, Push
 
 ```{r}
 #| eval: false
 
 # A subest for median life expectancy by continent and year
 
-gapminder_summary_continent_year <- gapminder %>%
-  ___(continent, ___) %>% 
+gapminder_summary_continent_year <- gapminder |>
+  ___(continent, ___) |> 
   summarise(___ = ___(___))
 
 ```
@@ -139,7 +136,7 @@ gapminder_summary_continent_year <- gapminder %>%
 -   life expactancy to the y-axis;
 -   continent to color using the `fill = continent` argument inside `aes()`
 
-3.  Do not display (ignore) the outliers in the plot.
+3.  Do not display (ignore) the outliers in the plot. **Note: Use a search engine to find the solution**
 
 4.  Run the code contained in the code-chunk and fix any errors
 
@@ -147,7 +144,7 @@ gapminder_summary_continent_year <- gapminder %>%
 
 1.  Add a new code-chunk below
 
-2.  Use the `ggplot()` function and the `gapminder_summary_continent_year` object to create a connected scatterplot (also timeseries plot) using the `geom_line()` and `geom_point()`functions with the following aesthetic mappings:
+2.  Use the `ggplot()` function and the `gapminder_summary_continent_year` object to create a connected scatterplot (also called timeseries plot) using the `geom_line()` and `geom_point()`functions with the following aesthetic mappings:
 
 -   year to the x-axis;
 -   life expactancy to the y-axis;
@@ -233,7 +230,7 @@ gapminder_summary_continent_year <- gapminder %>%
 
 2.  Run the code contained in the code-chunk and fix any errors
 
-3.  Remove \# sign at the line that starts with the `scale_color_manual()` function
+3.  Remove the '#' sign at the line that starts with the `scale_color_manual()` function
 
 4.  What is stored in the `country_colors` object? Find out by executing the object in the Console (type it to the Console and hit enter). Do the same again, but with a question mark `?country`.
 
@@ -260,27 +257,25 @@ ggplot(data = gapminder,
 
 You can also prepare maps with `ggplot2`. It's beyond the scope of the class to teach you the foundations of spatial data in R, but a popular package to work with spatial data is the `sf` (Simple Feautures) R Package. The `rnaturalearth` R Package facilitates world mapping by making [Natural Earth](https://www.naturalearthdata.com/) map data more easily available to R users.
 
-The code-chunk below contains code that for a world map that shows countries by income group. If you want to view that map, do the following:
+The code-chunk below contains code that for a world map that shows countries by income group. To view the map, do the following:
 
-1.  Install the `sf` and the `rnaturalearth` R Packages.
+1.  Install the `sf` and the `rnaturalearth` R Packages. **Hint: Use the install.packages() function in the Console**
 
-2.  Load the R Packages at the beginning of this file alongside the other loaded R Packages.
+2.  Load the R Packages using the `library()` at the beginning of this file alongside the other loaded R Packages.
 
 3.  Run the code contained in the code-chunk and fix any errors
 
 4.  Next to the code-chunk option `#| eval:` change the value from `false` to `true`
 
-5.  Render
-
-6.  Add, Commit, Push
+5.  Render the document and fix any errors
 
 ```{r}
 #| eval: false
 
 world <- ne_countries(scale = "small", returnclass = "sf")
 
-world %>% 
-  mutate(income_grp = factor(income_grp, ordered = T)) %>% 
+world |> 
+  mutate(income_grp = factor(income_grp, ordered = T)) |> 
   ggplot() + 
   geom_sf(aes(fill = income_grp)) +
   theme_void() +
@@ -295,7 +290,7 @@ The code for the code-chunk is taken from here: More here: https://bookdown.org/
 
 ## Working with spatial data in R
 
-If you are interested in working with spatial data in R, then I recommend the following resources:
+If you are interested in working with spatial data in R, then I recommend the following resources for further study:
 
 -   Geocompuation with R - Book: https://geocompr.robinlovelace.net/
 -   Simple Features for R - Article: https://r-spatial.github.io/sf/articles/sf1.html
@@ -303,12 +298,18 @@ If you are interested in working with spatial data in R, then I recommend the fo
 
 # Task 5: Data communication
 
-1.  Use the Quarto Documentation Guide for HTML format to figure out how to add a theme to this Quarto document.
+**In the YAML header**
 
-https://quarto.org/docs/guide/
-
-2.  Apply a theme to this Quarto document.
+1. Add your name as the author of this document
+2. Add the date of today
+3. Change the format of the document to PDF
+4. Add a table of contents
 
 # Task 6: Complete assignment
 
-Open an issue on the repo for this exercise to let us know you completed it. Use the @larnsce mention.
+1.  Open the 'Files' tab in the bottom right window
+2.  Navigate to the generated PDF: `wk-02/hw-02-data-visualisation.pdf`
+3.  Tick the box next to the PDF file
+4.  Click on 'More' (the blue gear icon) in the menu bar above the file manager
+5.  Click on 'Export' and download the PDF file
+6.  Send the PDF by email to the course instructor
