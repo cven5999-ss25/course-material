@@ -1,11 +1,6 @@
 ---
 title: "Programming Exercise - Data Visualisation"
-author: "Lars Schöbitz"
-date: today
-format:
-  pdf:
-    toc: true
-editor: visual
+format: html
 execute:
   echo: true
   warning: false
@@ -17,9 +12,11 @@ editor_options:
 
 1.  Add a new code-chunk below the three outlined steps for Task 0
 
-2.  Load the `gapminder`, `ggplot2` and `dplyr` R Packages
+2.  Load the `gapminder`, `ggplot2`, and `dplyr` R Packages using the `library()` function
 
 3.  Run the code contained in the code-chunk and fix any errors
+
+<!--# Remove this comment and add a new code-chunk -->
 
 # Task 1: Data import
 
@@ -47,12 +44,10 @@ The data is tidy and we can directly work with it. The step is here as reminder.
 
 6.  Next to the code-chunk option `#| eval:` change the value from `false` to `true`
 
-7. Render the document and fix any errors
+7.  Render the document and fix any errors
 
 ```{r}
 #| eval: false
- 
-# A subset only for 2007
 
 ___ <- ___ |> 
   ___(___ == ___)
@@ -80,8 +75,6 @@ ___ <- ___ |>
 
 ```{r}
 #| eval: false
-
-# A subset for median life expectancy in 2007 by continent
 
 gapminder_summary_continent_2007 <- gapminder_yr_2007 |> 
   ___(___) |> 
@@ -112,11 +105,8 @@ gapminder_summary_continent_2007 <- gapminder_yr_2007 |>
 
 8.  Render the document and fix any errors
 
-
 ```{r}
 #| eval: false
-
-# A subest for median life expectancy by continent and year
 
 gapminder_summary_continent_year <- gapminder |>
   ___(continent, ___) |> 
@@ -125,6 +115,22 @@ gapminder_summary_continent_year <- gapminder |>
 ```
 
 # Task 4: Data visualisation
+
+Thank you for working through the previous tasks. I am convinced that you have done a great job, but because my task descriptions aren't always unambiguous, I have imported the data that I would have expected to be created and stored in `gapminder_yr_2007`, `gapminder_summary_continent_2007` and `gapminder_summary_continent_year` at the previous code-chunks. This is to ensure that you can work through the following tasks.
+
+1.  Run the code contained in the code-chunk
+
+```{r}
+
+library(readr)
+
+gapminder_yr_2007 <- read_rds(here::here("wk-02/data/gapminder-yr-2007.rds"))
+
+gapminder_summary_continent_2007 <- read_rds(here::here("wk-02/data/gapminder-summary-continent-2007.rds"))
+
+gapminder_summary_continent_year <- read_rds(here::here("wk-02/data/gapminder-summary-continent-year.rds"))
+
+```
 
 ## Boxplot
 
@@ -136,9 +142,11 @@ gapminder_summary_continent_year <- gapminder |>
 -   life expactancy to the y-axis;
 -   continent to color using the `fill = continent` argument inside `aes()`
 
-3.  Do not display (ignore) the outliers in the plot. **Note: Use a search engine to find the solution**
+3.  Do not display (ignore) the outliers in the plot. **Note: Use a search engine to find the solution and add the link to the solution you have found.**
 
 4.  Run the code contained in the code-chunk and fix any errors
+
+5.  What are the data types of the three variables used for aesthetic mappings? **Reminder: Lecture slide: https://cven5837-ss22.github.io/website/slides/lec-02-visualisation.html#/types-of-variables**
 
 ## Timeseries plot
 
@@ -197,7 +205,7 @@ gapminder_summary_continent_year <- gapminder |>
 
 6.  Describe how the `geom_histogram()` function is similar to the `geom_bar()` function.
 
-7.  What happens by adding the 'breaks' argument? Play around with the numbers inside of `seq()` to see what changes.
+7.  What happens by adding the 'breaks' argument? Play around with the numbers inside of `seq()` to see what changes. Describe what you observe here:
 
 ## Scatterplot and faceting
 
@@ -208,13 +216,13 @@ gapminder_summary_continent_year <- gapminder |>
 -   population to the size argument;
 -   country to color using the `color = continent` argument inside `aes()`
 
-2.  Run the code contained in the code-chunk and fix any errors.
+2.  Run the code contained in the code-chunk and fix any errors
 
 3.  Use the variable continent to facet the plot by adding: `facet_wrap(~continent)`
 
 4.  Run the code contained in the code-chunk and fix any errors
 
-5.  Describe in your own words what the `facet_wrap()`function does
+5.  Describe in your own words what the `facet_wrap()` function does
 
 6.  Adapt the scaling of the size by adding `scale_size(range = c(2, 12))` on the next line
 
@@ -232,11 +240,11 @@ gapminder_summary_continent_year <- gapminder |>
 
 3.  Remove the '#' sign at the line that starts with the `scale_color_manual()` function
 
-4.  What is stored in the `country_colors` object? Find out by executing the object in the Console (type it to the Console and hit enter). Do the same again, but with a question mark `?country`.
+4.  What is stored in the `country_colors` object? Find out by executing the object in the Console (type it to the Console and hit enter). Do the same again, but with a question mark `?country_colors`.
 
 5.  Next to the code-chunk option `#| eval:` change the value from `false` to `true`
 
-6.  Render
+6.  Render the document and fix any errors
 
 ```{r}
 #| eval: false
@@ -298,12 +306,13 @@ If you are interested in working with spatial data in R, then I recommend the fo
 
 # Task 5: Data communication
 
-**In the YAML header**
+**In the YAML header (between the three dashes at the top of the document)**
 
-1. Add your name as the author of this document
-2. Add the date of today
-3. Change the format of the document to PDF
-4. Add a table of contents
+1.  Add your name as the author of this document
+2.  Add the date of today
+3.  Change the format of the document to PDF
+4.  Add a table of contents
+5.  Render the document and fix any errors
 
 # Task 6: Complete assignment
 
