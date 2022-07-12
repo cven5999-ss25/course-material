@@ -49,3 +49,6 @@ resources
 
 # video files
 *.mp4
+
+# compressed files
+*.zip
