@@ -4,6 +4,7 @@ format: html
 execute:
   echo: true
   warning: false
+editor: visual
 editor_options: 
   chunk_output_type: console
 ---
