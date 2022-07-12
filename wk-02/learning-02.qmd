@@ -1,0 +1,32 @@
+---
+title: "Learning Reflection"
+subtitle: "Week 2"
+format: pdf
+editor: visual
+---
+
+# Learning reflections
+
+Learning reflections are part of your weekly homework and count 25% of your final grade. Write a reflection in your own words on the different parts of the weeks material below. You can also use your learning reflections as a notebook as you work through exercises or readings. Write as much as you like, but a minimum of 200 words in total.
+
+# Lecture
+
+<!--# Add your reflections on the lecture of this week here -->
+
+# Homework Assignment
+
+<!--# Add your reflections on the homework programming assignment here -->
+
+# Readings
+
+<!--# Add your reflections on the required readings here -->
+
+# Submit learning reflections
+
+1.  Render the document
+2.  Open the 'Files' tab in the bottom right window
+3.  Navigate to the generated PDF
+4.  Tick the box next to the PDF file
+5.  Click on 'More' (the blue gear icon) in the menu bar above the file manager
+6.  Click on 'Export' and download the PDF file
+7.  Send the PDF by email to the course instructor
