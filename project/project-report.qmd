@@ -1,0 +1,120 @@
+---
+title: "Untitled"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+# Project report
+
+Thank you for uploading your identified data to the course material. I have created this file for you to work on your data using the code you have learned as part of the course. I have added some data cleaning steps as the first code-chunk. I hope this will help you work with your data more efficiently.
+
+It is up to you which analysis you would like to perform with your data. I am available to support you and answer any questions you may have.
+
+```{r}
+library(tidyverse)
+```
+
+# Data import
+
+```{r}
+readxl::read_excel(
+  "data/Data_Impact of clean energy on CO2 and GDP_phases of RES diffusion.xlsx",
+  sheet = 3)
+
+```
+
+## Kennedy
+
+```{r}
+emissions <- read_csv("data/energy_co2 _emissions_emerging_economies_2010s.csv")
+
+emissions_tidy <- emissions |>
+  rename_all(tolower) 
+
+
+
+emissions_tidy |> 
+  filter(year == 2019) |> 
+  group_by(country, fueltype) |> 
+  summarise(
+    sum_co2_mt = sum(co2_mt)
+  ) |> 
+  arrange(desc(sum_co2_mt)) |> 
+  filter(sum_co2_mt < 100) |> 
+  ggplot(aes(fueltype, sum_co2_mt)) +
+  geom_boxplot() 
+
+
+emissions_tidy |> 
+  filter(year == 2019) |> 
+  group_by(country, fueltype) |> 
+  summarise(
+    sum_co2_mt = sum(co2_mt)
+  ) |> 
+  arrange(desc(sum_co2_mt)) |> 
+  filter(sum_co2_mt > 100) |> 
+  ggplot(aes(fueltype, sum_co2_mt)) +
+  geom_boxplot() 
+
+```
+
+## Manjeet
+
+```{r}
+literacy <- read_csv("data/MJT_WB1_Education_Data.csv")
+
+
+literacy_tidy <- literacy |> 
+  rename(country = `Country Name`, 
+         iso3 = `Country Code`,
+         series = Series,
+         series_code = `Series Code`) |> 
+  pivot_longer(cols = !country:series_code, 
+               names_to = "year", 
+               values_to = "prop") |> 
+  mutate(year = str_sub(year, start = 1L, end = 4L)) |> 
+  mutate(prop = case_when(
+    prop == ".." ~ NA_character_,
+    TRUE ~ prop
+  )) |> 
+  filter(!is.na(prop)) |> 
+  mutate(prop = as.numeric(prop)) |> 
+  mutate(percent = case_when(
+    str_detect(series, "(%)") ~ prop, 
+    TRUE ~ prop * 100))
+
+
+```
+
+
+```{r}
+
+literacy_tidy |> 
+  filter(series_code == "UIS.LR.AG15T99.GPIA") |> 
+  filter(!is.na(prop)) |> 
+  ggplot(aes(x = year, y = percent, group = iso3, color = country)) +
+  geom_point() +
+  geom_line()
+
+
+```
+
+
+```{r}
+
+literacy_tidy |> 
+  count(series_code) |> 
+  arrange(desc(n))
+
+literacy_tidy |> 
+  filter(series_code == "SE.ADT.1524.LT.FE.ZS") |> 
+  ggplot(aes(x = year, y = percent, color = country, group = country)) +
+  geom_point() +
+  geom_line()
+
+
+```
+
+
