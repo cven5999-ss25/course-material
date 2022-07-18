@@ -105,9 +105,7 @@ composition <- global_waste_data |>
 
 4.  Store the subset as a new object in your environment with the name `composition_tidy`
 
-5.  Render and fix any errorss
-
-6.  Commit your changes
+5.  Render and fix any errors
 
 ```{r}
 
@@ -207,8 +205,6 @@ composition_tidy |>
 
 2.  Render and fix any errors
 
-3.  Commit your changes
-
 ```{r}
 
 composition_tidy |> 
@@ -232,8 +228,6 @@ composition_tidy |>
 3.  Store the result as a new object in your environment with the name `composition_tidy_capita`
 
 4.  Render and fix any errors
-
-5.  Commit your changes
 
 ```{r}
 
@@ -297,7 +291,9 @@ composition_tidy_capita_income_cat <- read_rds(here::here("wk-03/data/01-msw-gen
 
 1.  Starting with `composition_tidy_capita_income_cat`, group the data by `income_id`, then create a summary table containing the number of observations (call this count) for each group.
 
-2. Describe what the resulting table that you can see in the Console shows you.
+2.  Describe what the resulting table that you can see in the Console shows you.
+
+<!--# Remove this comment and use your own words to anwer the question -->
 
 ```{r}
 #| eval: true
@@ -313,6 +309,8 @@ composition_tidy_capita_income_cat |>
 1.  Starting with `composition_tidy_capita_income_cat`, group the data by `income_cat`, then create a summary table containing the number of observations (call this count) for each group.
 
 2.  Observe the output in the Console and describe the difference to the resulting table of the previous code-chunk.
+
+<!--# Remove this comment and use your own words to anwer the question -->
 
 ```{r}
 
@@ -332,7 +330,9 @@ composition_tidy_capita_income_cat |>
 
 4.  Remove the `#` at the row starting with `tidyr::`.
 
-5.  Execute the code and observe the output in the Console. What has changed? How is that different to adding `na.rm = TRUE` as an argument to the `mean()`
+5.  Execute the code and observe the output in the Console. What has changed? How is that different to adding `na.rm = TRUE` as an argument to the `mean()` ?
+
+<!--# Remove this comment and use your own words to anwer the question -->
 
 ```{r}
 #| eval: true
@@ -353,7 +353,7 @@ composition_tidy_capita_income_cat |>
 
 2.  Ensure that the summary table contains no `NA` by removing rows with `NA` before summarising the data.
 
-3.  Store the summary tableas a new object in your environment with the name `table_msw_generation`
+3.  Store the summary table as a new object in your environment with the name `table_msw_generation`
 
 ```{r}
 
@@ -522,7 +522,11 @@ table_msw_generation |>
 
 # Task 6: Complete assignment
 
-1.  Render and fix any errors
-2.  Commit your changes (make sure your Git pane is empty)
-3.  Push to GitHub
-4.  Open an issue on the repo for this exercise to let us know you completed it. Use the @larnsce mention.
+1.  In the YAML header, change the document format from `html` to `pdf`
+2.  Render the document
+3.  Open the 'Files' tab in the bottom right window
+4.  Navigate to the generated PDF: `wk-03/hw-03a-data-transformation.pdf`
+5.  Tick the box next to the PDF file
+6.  Click on 'More' (the blue gear icon) in the menu bar above the file manager
+7.  Click on 'Export' and download the PDF file
+8.  Send the PDF by email to the course instructor
