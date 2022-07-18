@@ -27,10 +27,13 @@ sanitation <- read_csv(here::here("wk-03/data/jmp-washdata-indicators-safely-man
 
 ```
 
-
 ## Explore data
 
-The original source of this data is from [washdata.org](https://washdata.org/)  WHO/UNICEF Joint Monitoring Programme for Water Supply and Sanitation. Data was pre-processed to prepare data in a consisent format follows tidy data principles. The code and imported data can be accessed in the [larnsce/washr GitHub repository](https://github.com/larnsce/washr).
+The original source of this data is from [washdata.org](https://washdata.org/)  WHO/UNICEF Joint Monitoring Programme for Water Supply and Sanitation. Data was pre-processed to prepare data in a consisent format follows tidy data principles. 
+
+Income groups are derived from the [World Bank Country and Lending Groups data](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups). 
+
+All code for pre-processing and the imported data can be accessed from the [larnsce/washr GitHub repository](https://github.com/larnsce/washr). 
 
 ```{r}
 
