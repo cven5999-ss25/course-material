@@ -1,0 +1,139 @@
+---
+title: "Untitled"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+# Project report
+
+Thank you for uploading your identified data to the course material. I have created this file for you to work on your data using the code you have learned as part of the course. I have added some data cleaning steps as the first code-chunk. I hope this will help you work with your data more efficiently.
+
+It is up to you which analysis you would like to perform with your data. I am available to support you and answer any questions you may have.
+
+```{r}
+# here I load all R packages that are part of the tidyverse collection of R packages
+# you can use this instead of loading each package individually
+
+library(tidyverse)
+library(readxl)  # a package to support importing of data from MS Excel files
+
+```
+
+# Data import
+
+The data for each country is imported from the separate sheets and stored as individual objects.
+
+```{r}
+
+energy_fr <- read_excel(
+  "data/Data_Impact of clean energy on CO2 and GDP_phases of RES diffusion.xlsx",
+  sheet = 2, skip = 2)
+
+energy_sp <- read_excel(
+  "data/Data_Impact of clean energy on CO2 and GDP_phases of RES diffusion.xlsx",
+  sheet = 3, skip = 2)
+
+energy_se <- read_excel(
+  "data/Data_Impact of clean energy on CO2 and GDP_phases of RES diffusion.xlsx",
+  sheet = 4, skip = 2)
+
+
+```
+
+# Data cleaning
+
+Date cleaning is performed for each object individually.
+
+```{r}
+
+energy_fr_tidy <- energy_fr |> 
+  select(year_quarter = ...1, CO2_FR:GDPr_FR) |> 
+  mutate(country_name = "France") |> 
+  # help from: https://stackoverflow.com/a/64818326/6816220
+  rename_with(.fn = str_remove, pattern = "_FR",
+              .cols = ends_with("_FR")) |> 
+  rename(GDPR = GDPr)
+
+```
+
+
+```{r}
+
+energy_sp_tidy <- energy_sp |> 
+  select(year_quarter = ...1, CO2_SP:GDP_R_SP) |> 
+  mutate(country_name = "Spain") |> 
+  # help from: https://stackoverflow.com/a/64818326/6816220
+  rename_with(.fn = str_remove, pattern = "_SP",
+              .cols = ends_with("_SP")) |> 
+  rename(GDPR = GDP_R)
+
+```
+
+
+```{r}
+
+energy_se_tidy <- energy_se |> 
+  select(year_quarter = ...1, CO2_SE:GDPR_SE) |> 
+  mutate(country_name = "Sweden") |> 
+  # help from: https://stackoverflow.com/a/64818326/6816220
+  rename_with(.fn = str_remove, pattern = "_SE",
+              .cols = ends_with("_SE")) 
+```
+
+The individual tidy dataframes are added together by the rows (put on top of each other). The `country_name` variable now differentiates the data by country.
+
+Additionally, the column containing the year and quarter was transformed to a date. The first day of the quarter was chosen. This allows for smoother visualisation and data transformation processes.
+
+```{r}
+
+energy_tidy <- bind_rows(
+  energy_fr_tidy,
+  energy_sp_tidy,
+  energy_se_tidy) |> 
+  relocate(country_name) |> 
+  separate(col = year_quarter, into = c("year", "quarter"), sep = "Q") |> 
+  mutate(month = case_when(
+    quarter == "1" ~ "1",
+    quarter == "2" ~ "4",
+    quarter == "3" ~ "7",
+    quarter == "4" ~ "10",
+  ))  |> 
+  mutate(date = paste0(year, "-", month, "-", "1")) |> 
+  mutate(date = lubridate::as_date(date)) |> 
+  relocate(date, .after =  country_name) |> 
+  select(-year, -quarter)
+
+
+```
+
+# Data transformation
+
+The differences between the quarters are calculated.
+
+```{r}
+
+energy_diff <- energy_tidy |> 
+  mutate_at(.vars = vars(CO2, RES, NUC, NRES, GDPR),
+            .funs = list(diff = ~ . - lag(.))) 
+
+```
+
+# Data visualisation
+
+An exmaple of a data visualisation for this data.
+
+```{r}
+
+ggplot(data = energy_diff, 
+       mapping = aes(x = date,
+                     y = CO2,
+                     color = country_name,
+                     group = country_name)) +
+  geom_point() +
+  geom_line() +
+  scale_x_date(date_breaks = "5 years")
+
+```
+

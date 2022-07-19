@@ -42,7 +42,7 @@ vignettes/*.pdf
 .DS_Store
 
 # Solutions
-*-solutions.qmd
+# *-solutions.qmd
 
 # directories
 resources
