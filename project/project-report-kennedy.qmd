@@ -1,0 +1,78 @@
+---
+title: "Untitled"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+# Project report
+
+Thank you for uploading your identified data to the course material. I have created this file for you to work on your data using the code you have learned as part of the course. I have added some data cleaning steps as the first code-chunk. I hope this will help you work with your data more efficiently.
+
+It is up to you which analysis you would like to perform with your data. I am available to support you and answer any questions you may have.
+
+```{r}
+# here I load all R packages that are part of the tidyverse collection of R packages
+# you can use this instead of loading each package individually
+
+library(tidyverse)
+
+```
+
+# Data import
+
+```{r}
+emissions <- read_csv("data/energy_co2 _emissions_emerging_economies_2010s.csv")
+
+```
+
+# Data cleaning
+
+Your data is already in a good format. I have only changed the capitalization of the variable names, but that is out of preference and not necessary as they are following the same pattern.
+
+```{r}
+emissions_tidy <- emissions |>
+  rename_all(tolower) 
+```
+
+# Data transformation
+
+I have filtered the data for 2019 and prepare a summary by country and fueltype, but there are many other options you have here for working with the data.
+
+```{r}
+
+emissions_tidy_sum <- emissions_tidy |> 
+  filter(year == 2019) |> 
+  group_by(country, fueltype) |> 
+  summarise(
+    sum_co2_mt = sum(co2_mt)
+  )
+
+```
+
+# Data visualisation
+
+```{r}
+
+emissions_tidy_sum |> 
+  filter(sum_co2_mt < 100) |> 
+  # it is possible to use the pipe to use the data directly in 
+  # the ggplot() function for plotting
+  ggplot(mapping = aes(x = fueltype, 
+                       y = sum_co2_mt)) +
+  geom_boxplot() 
+
+```
+
+```{r}
+
+emissions_tidy_sum |> 
+  filter(sum_co2_mt > 100) |> 
+  ggplot(mapping = aes(x = fueltype,
+                       y = sum_co2_mt)) +
+  geom_boxplot() 
+
+```
+
+## 
