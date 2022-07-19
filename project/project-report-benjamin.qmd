@@ -1,0 +1,33 @@
+---
+title: "Untitled"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+# Project report
+
+Thank you for uploading your identified data to the course material. I have created this file for you to work on your data using the code you have learned as part of the course. I have added some data cleaning steps as the first code-chunk. I hope this will help you work with your data more efficiently.
+
+It is up to you which analysis you would like to perform with your data. I am available to support you and answer any questions you may have.
+
+```{r}
+# here I load all R packages that are part of the tidyverse collection of R packages
+# you can use this instead of loading each package individually
+
+library(tidyverse)
+library(readxl)  # a package to support importing of data from MS Excel files
+
+```
+
+# Data import
+
+```{r}
+read_excel(
+  "data/Data_Impact of clean energy on CO2 and GDP_phases of RES diffusion.xlsx",
+  sheet = 3)
+
+```
+
+## 
