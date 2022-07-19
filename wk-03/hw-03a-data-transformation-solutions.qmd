@@ -137,7 +137,7 @@ composition_tidy <- composition |>
 
 **Fill in the blanks**
 
-1.  Use the `filter()` function in combination with `is.na()` to create a subset from `composition_tidy` containing observations for countries with missing data for the variable which has percentages on food and organic waste.
+1.  Use the `filter()` function in combination with `is.na()` to create a subset from `composition_tidy` containing observations for countries with missing data for the variable named food_organic_waste
 
 2.  Next to the code-chunk option `#| eval:` change the value from `false` to `true`
 
@@ -259,7 +259,7 @@ In class, we have not yet looked at the `case_when()` function. Use the exercise
 <!--# Remove this comment and use your own words to anwer the question -->
 
 ```{r}
-#| eval: false
+#| eval: true
 
 levels_income_cat <- c("high income", 
                       "upper-middle income",
@@ -351,7 +351,7 @@ composition_tidy_capita_income_cat |>
 #| eval: true
 
 composition_tidy_capita_income_cat |> 
-  # tidyr::drop_na(msw_capita_kg_year) |> 
+  tidyr::drop_na(msw_capita_kg_year) |> 
   group_by(income_cat) |> 
   summarise(
     count = n(),

@@ -30,10 +30,15 @@ library(ggplot2)
 
 **Fill in the blanks**
 
-1.  Use the `read_csv()` function to import the 'country_level_data_0.csv' file by assigning it to an object name `global_waste_data`
+1.  Use the `read_csv()` function to import the 'country_level_data_0.csv' file from the wk-03/data folder by assigning it to an object name `global_waste_data`
+2.  Run the code contained in the code-chunk and fix any errors
+3.  Next to the code-chunk option `#| eval:` change the value from `false` to `true`
+4.  Render and fix any errors
 
 ```{r}
-global_waste_data <- read_csv(here::here("wk-03/data/country_level_data_0.csv"))
+#| eval: false
+
+global_waste_data <- read_csv(here::here("wk-03/data/___"))
 ```
 
 # Task 2: Data tidying
@@ -56,10 +61,10 @@ global_waste_data <- read_csv(here::here("wk-03/data/country_level_data_0.csv"))
 4.  Render and fix any errors
 
 ```{r}
-#| eval: true
+#| eval: false
 
 global_waste_data |> 
-  select(iso3c, ends_with("percent"))
+  ___(___, ___("percent"))
 ```
 
 ### Part 2
@@ -80,12 +85,7 @@ global_waste_data |>
 
 ```{r}
 
-composition <- global_waste_data |> 
-  select(country_name, 
-         income_id, 
-         population_population_number_of_people, 
-         total_msw_total_msw_generated_tons_year,
-         starts_with("composition"))
+
 
 ```
 
@@ -109,18 +109,7 @@ composition <- global_waste_data |>
 
 ```{r}
 
-composition_tidy <- composition |> 
-  rename(food_organic_waste = composition_food_organic_waste_percent,
-         glass = composition_glass_percent,
-         metal = composition_metal_percent,
-         other = composition_other_percent,
-         paper_cardboard = composition_paper_cardboard_percent,
-         plastic = composition_plastic_percent,
-         rubber_leather = composition_rubber_leather_percent,
-         wood = composition_wood_percent,
-         yard_garden_green_waste = composition_yard_garden_green_waste_percent,
-         msw_tons_year = total_msw_total_msw_generated_tons_year,
-         population = population_population_number_of_people) 
+
 
 ```
 
@@ -132,15 +121,15 @@ composition_tidy <- composition |>
 
 **Fill in the blanks**
 
-1.  Use the `filter()` function in combination with `is.na()` to create a subset from `composition_tidy` containing observations for countries with missing data for the variable which has percentages on food and organic waste.
+1.  Use the `filter()` function in combination with `is.na()` to create a subset from `composition_tidy` containing observations for countries with missing data for the variable named food_organic_waste
 
 2.  Next to the code-chunk option `#| eval:` change the value from `false` to `true`
 
 ```{r}
-#| eval: true
+#| eval: false
 
 composition_tidy |>  
-  filter(is.na(food_organic_waste))
+  filter(___(___))
 
 ```
 
@@ -152,8 +141,6 @@ composition_tidy |>
 
 ```{r}
 
-composition_tidy |> 
-  filter(income_id == "HIC")
 
 ```
 
@@ -165,8 +152,7 @@ composition_tidy |>
 
 ```{r}
 
-composition_tidy |> 
-  filter(income_id != "LIC") 
+
 
 ```
 
@@ -178,9 +164,7 @@ composition_tidy |>
 
 ```{r}
 
-composition_tidy |> 
-  filter(income_id == "HIC",
-         food_organic_waste > 50)
+
 
 ```
 
@@ -192,9 +176,7 @@ composition_tidy |>
 
 ```{r}
 
-composition_tidy |> 
-  filter(income_id == "HIC" | income_id == "LIC",
-         other > 40)
+
 ```
 
 ### Part 6
@@ -207,13 +189,6 @@ composition_tidy |>
 
 ```{r}
 
-composition_tidy |> 
-  filter(country_name %in% c("Switzerland",
-                             "Ghana",
-                             "Kenya",
-                             "Turkey",
-                             "Nepal",
-                             "United States"))
 
 ```
 
@@ -231,9 +206,7 @@ composition_tidy |>
 
 ```{r}
 
-composition_tidy_capita <-  composition_tidy |> 
-  mutate(msw_capita_kg_year = msw_tons_year / population * 1000) |> 
-  relocate(msw_capita_kg_year, .after = msw_tons_year)
+
 
 ```
 
@@ -291,16 +264,22 @@ composition_tidy_capita_income_cat <- read_rds(here::here("wk-03/data/01-msw-gen
 
 1.  Starting with `composition_tidy_capita_income_cat`, group the data by `income_id`, then create a summary table containing the number of observations (call this count) for each group.
 
-2.  Describe what the resulting table that you can see in the Console shows you.
+2.  Run the code contained in the code-chunk and fix any errors
+
+3.  Describe what the resulting table that you can see in the Console shows you.
+
+4.  Next to the code-chunk option `#| eval:` change the value from `false` to `true`
+
+5.  Render and fix any errors
 
 <!--# Remove this comment and use your own words to anwer the question -->
 
 ```{r}
-#| eval: true
+#| eval: false
 
 composition_tidy_capita_income_cat |> 
-  group_by(income_id) |> 
-  summarise(count = n())
+  ___(income_id) |> 
+  ___(___ = n())
 
 ```
 
@@ -314,9 +293,6 @@ composition_tidy_capita_income_cat |>
 
 ```{r}
 
-composition_tidy_capita_income_cat |> 
-  group_by(income_cat) |> 
-  summarise(count = n())
 
 ```
 
@@ -332,17 +308,19 @@ composition_tidy_capita_income_cat |>
 
 5.  Execute the code and observe the output in the Console. What has changed? How is that different to adding `na.rm = TRUE` as an argument to the `mean()` ?
 
-<!--# Remove this comment and use your own words to anwer the question -->
+6.  Next to the code-chunk option `#| eval:` change the value from `false` to `true`
+
+7.  Render and fix any errors
 
 ```{r}
-#| eval: true
+#| eval: false
 
 composition_tidy_capita_income_cat |> 
   # tidyr::drop_na(msw_capita_kg_year) |> 
-  group_by(income_cat) |> 
+  group_by(___) |> 
   summarise(
-    count = n(),
-    mean_msw_total = mean(msw_capita_kg_year)
+    count = ___,
+    mean_msw_total = ___(msw_capita_kg_year)
   )
 
 ```
@@ -357,15 +335,7 @@ composition_tidy_capita_income_cat |>
 
 ```{r}
 
-table_msw_generation <- composition_tidy_capita_income_cat |> 
-  tidyr::drop_na(msw_capita_kg_year) |> 
-  group_by(income_cat) |> 
-  summarise(
-    count = n(),
-    mean = mean(msw_capita_kg_year),
-    median = median(msw_capita_kg_year),
-    sd = sd(msw_capita_kg_year)
-  )
+
 
 ```
 
@@ -379,19 +349,6 @@ table_msw_generation <- composition_tidy_capita_income_cat |>
 
 ```{r}
 
-table_composition <- composition_tidy_capita_income_cat |> 
-  tidyr::drop_na(msw_capita_kg_year, 
-                 food_organic_waste, 
-                 plastic,
-                 paper_cardboard) |> 
-  group_by(income_cat) |> 
-  summarise(
-    count = n(),
-    mean_msw_total = mean(msw_capita_kg_year),
-    mean_organic = mean(food_organic_waste),
-    mean_plastic = mean(plastic),
-    mean_paper_cardboard = mean(paper_cardboard)
-  )
 
 ```
 
