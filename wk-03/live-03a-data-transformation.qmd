@@ -104,8 +104,6 @@ The function `rename()` changes the name of columns.
 
 ```{r}
 
-sanitation_national_2020 |> 
-  rename(country_name = name)
 
 ```
 
