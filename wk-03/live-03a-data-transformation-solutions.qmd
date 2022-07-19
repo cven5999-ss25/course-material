@@ -16,6 +16,7 @@ library(dplyr)
 library(skimr)
 library(ggplot2)
 library(readr)
+library(tidyr)
 
 ```
 
@@ -248,11 +249,10 @@ sanitation_national_2020_fct |>
 sanitation_national_2020_fct |> 
   count(income_id_fct)
 
-
-## Table grouped by two variables
+## Additional summary statistics
 
 sanitation_national_2020_fct |>
-  tidyr::drop_na() |> 
+  drop_na() |> 
   group_by(income_id_fct) |> 
   summarise(count = n(),
             mean = mean(percent),
@@ -261,4 +261,26 @@ sanitation_national_2020_fct |>
 
 ```
 
-Learn more about column-wise operations: https://dplyr.tidyverse.org/articles/colwise.html
+#### Your turn
+
+1. Starting with `sanitation_national_2020_fct`, use the `mutate()` function to add a new column with the number of people with access to safely managed sanitation in each country. Name the column people_access (**Tipp: Check out how we did this in dplyr::mutate() section of this document.**) 
+
+2. Use the pipe operator to add another line of code which adds the `drop_na()` function to remove all NAs from the data
+
+3. Use the pipe operator to add another line of code which adds the `group_by()` function to group the data by region. 
+
+4. Use the pipe operator to add another line of code which adds the `summarise()` to create a summary table that contains the sum of the people_access column (call this people_access) and the sum of the pop column (call this pop) for each region. 
+
+5. Use the pipe operator to add another line of code which adds the `mutate()` function to add a new column with the percentage of people with access to safely managed sanitation in each region. Name the new column percent.
+
+```{r}
+
+sanitation_national_2020_fct |> 
+  mutate(people_access = pop * percent / 100) |> 
+  drop_na() |>  
+  group_by(region) |> 
+  summarise(people_access = sum(people_access),
+            pop = sum(pop)) |> 
+  mutate(percent = people_access / pop * 100)
+
+```
