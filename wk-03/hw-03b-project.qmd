@@ -9,11 +9,10 @@ execute:
   warning: false
 ---
 
-# Project 
+# Project
 
-Thank you for submitting your data. I have created a new directory titled "project" in the root directory of the course-material project. Please navigate to this directory using the file manager in the bottom right window. 
+Thank you for submitting your data. I have created a new directory titled "project" in the root directory of the course-material project. Please navigate to this directory using the file manager in the bottom right window.
 
-You will one file in this folder with your name at the end. This is your file that you can use to work with your data. 
+You will one file in this folder with your name at the end. This is your file that you can use to work with your data.
 
 There is no weekly material that you need to submit. It is up to you how much extra time you wish to invest into this project report during the course. I will also be available beyond the course to support you in working with your data.
-
