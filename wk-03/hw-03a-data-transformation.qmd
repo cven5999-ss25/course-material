@@ -1,12 +1,11 @@
 ---
-title: "Application Exercise 12 - Data wrangling with dplyr"
+title: "Homework Exercise - Data transformation"
 format: html
 editor: visual
 editor_options: 
   chunk_output_type: console
 execute:
   echo: true
-  message: false
   warning: false
 ---
 

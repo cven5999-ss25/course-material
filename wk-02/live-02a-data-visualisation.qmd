@@ -1,5 +1,5 @@
 ---
-title: "Application Exercise 11 - Data Visualisation"
+title: "Live Coding - Data Visualisation"
 format: 
   html: default
 editor: visual

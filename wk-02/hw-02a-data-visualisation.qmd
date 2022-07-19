@@ -1,5 +1,5 @@
 ---
-title: "Programming Exercise - Data Visualisation"
+title: "Homework Exercise - Data Visualisation"
 format: html
 execute:
   echo: true
