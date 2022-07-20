@@ -91,6 +91,11 @@ sanitation |>
 sanitation_national_2020 <- sanitation |> 
   filter(residence == "national", year == 2020)
 
+# What is in the variables?
+
+sanitation |> 
+  count(residence)
+
 ```
 
 ### dplyr::arrange()
