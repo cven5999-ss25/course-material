@@ -1,5 +1,5 @@
 ---
-title: "Live coding exercise - Vectors"
+title: "Live coding exercise - Pivoting"
 format: html
 editor: visual
 editor_options: 
@@ -37,10 +37,10 @@ waste_data <- read_delim(here::here("wk-04/data/rbtl_fs22_waste_composition_bell
 
 ```{r}
 
-waste_data_long <- waste_data %>% 
-  select(number, starts_with("weight")) %>% 
-  rename_with(~str_remove(.x, "weight_")) %>% 
-  select(-total) %>% 
+waste_data_long <- waste_data |> 
+  select(number, starts_with("weight")) |> 
+  rename_with(~str_remove(.x, "weight_")) |> 
+  select(-total) |> 
   pivot_longer(cols = !number,
               names_to = "waste_category",
               values_to = "weight")
@@ -73,7 +73,7 @@ glimpse(gapminder_wide)
 
 ```{r}
 
-gapminder_wide %>% 
+gapminder_wide |> 
   pivot_longer(cols = gdpPercap_1952:pop_2007,
                names_to = "obstype_year",
                values_to = "obs_value") 
@@ -84,10 +84,10 @@ gapminder_wide %>%
 # type (pop, lifeExp, or gdpPercap) and the year. We can use the separate() 
 # function to split the character strings into multiple variables
 
-gapminder_long <- gapminder_wide %>% 
+gapminder_long <- gapminder_wide |> 
   pivot_longer(cols = gdpPercap_1952:pop_2007,
                names_to = "obstype_year",
-               values_to = "obs_value") %>% 
+               values_to = "obs_value") |> 
   separate(col = obstype_year, into = c("obs_type", "year"), sep = "_") 
 
 ```
@@ -98,17 +98,17 @@ Using `gapminder_long`, calculate the mean life expectancy, population, and gdpP
 
 ```{r}
 
-gapminder_long %>% 
-  group_by(continent, obs_type) %>% 
+gapminder_long |> 
+  group_by(continent, obs_type) |> 
   summarise(means = mean(obs_value)) 
 
 # Want a readable table? Back to wide
 
-gapminder_long %>% 
-  group_by(continent, obs_type) %>% 
-  summarise(means = mean(obs_value)) %>% 
+gapminder_long |> 
+  group_by(continent, obs_type) |> 
+  summarise(means = mean(obs_value)) |> 
   pivot_wider(names_from = obs_type,
-              values_from = means) %>% 
+              values_from = means) |> 
   knitr::kable(digits = 1)
 
 # Render
@@ -119,12 +119,11 @@ gapminder_long %>%
 
 ```{r}
 
-gapminder_normal <- gapminder_long %>% 
+gapminder_normal <- gapminder_long |> 
   pivot_wider(names_from = obs_type,
-              values_from = obs_value) %>% 
-  select(country, continent, year, lifeExp, pop, gdpPercap) %>% 
+              values_from = obs_value) |> 
+  select(country, continent, year, lifeExp, pop, gdpPercap) |> 
   arrange(country, year)
 
 ```
 
-# 
