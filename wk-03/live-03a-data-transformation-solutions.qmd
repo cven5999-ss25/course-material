@@ -15,6 +15,7 @@ library(dplyr)
 library(ggplot2)
 library(readr)
 library(tidyr)
+library(here)
 
 ```
 
@@ -22,7 +23,7 @@ library(tidyr)
 
 ```{r}
 
-sanitation <- read_csv(here::here("wk-03/data/jmp-washdata-indicators-safely-managed-sml.csv"))
+sanitation <- read_csv(here("wk-03/data/jmp-washdata-indicators-safely-managed-sml.csv"))
 
 ```
 
