@@ -1,14 +1,12 @@
 ---
-title: "Application Exercise 13 - Data wrangling with tidyr"
+title: "Live coding exercise - Vectors"
 format: html
 editor: visual
 editor_options: 
   chunk_output_type: console
-bibliography: references.bib
 execute:
   echo: true
   warning: false
-  message: false
 ---
 
 ```{r}
