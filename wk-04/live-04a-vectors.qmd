@@ -111,5 +111,3 @@ tib_data |>
          quarter = quarter(date))
 
 ```
-
-
