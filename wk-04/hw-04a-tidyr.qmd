@@ -9,7 +9,7 @@ execute:
   warning: false
 ---
 
-# Part 0: Load Packages
+# Task 0: Load Packages
 
 1.  What's the `tidyverse` Package? Describe in maximum two sentences below.
 
@@ -20,7 +20,7 @@ library(tidyverse)
 library(here)
 ```
 
-# Part 1: Import data
+# Task 1: Import data
 
 **Write the code yourself**
 
@@ -32,7 +32,7 @@ waste_data <- read_csv(here("wk-04/data/msw-generation-and-composition-by-income
 
 ```
 
-# Part 2: Vector coersion
+# Task 2: Vector coersion
 
 **Write the code yourself**
 
@@ -62,7 +62,7 @@ waste_data_fct <- waste_data |>
 
 ```
 
-# Part 3: From wide to long
+# Task 3: From wide to long
 
 **Write the code yourself**
 
@@ -87,7 +87,7 @@ waste_data_long <- waste_data_fct |>
   drop_na(percent)
 ```
 
-# Part 4: Summarise data
+# Task 4: Summarise data
 
 As in the exercises for week 12, I have stored the data that I would have expected at this point and import it here.
 
@@ -134,7 +134,7 @@ waste_data_long_mean |>
 
 ```
 
-# Part 5: Data visualisation
+# Task 5: Data visualisation
 
 As in the exercises for week 12, I have stored the data that I would have expected at this point and import it here.
 
@@ -172,3 +172,14 @@ ggplot(data = waste_data_long_mean,
 ```
 
 ![](figs/fig-01-mean-waste-composition-by-income.png)
+
+# Task 6: Complete assignment
+
+1.  In the YAML header, change the document format from `html` to `pdf`
+2.  Render the document
+3.  Open the 'Files' tab in the bottom right window
+4.  Navigate to the generated PDF: `wk-04/hw-04a-tidyr.pdf`
+5.  Tick the box next to the PDF file
+6.  Click on 'More' (the blue gear icon) in the menu bar above the file manager
+7.  Click on 'Export' and download the PDF file
+8.  Send the PDF by email to the course instructor
