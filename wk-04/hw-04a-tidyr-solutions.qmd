@@ -24,7 +24,7 @@ library(here)
 
 **Write the code yourself**
 
-1.  Use the `read_csv()` (**Note**: Watch out for the `_` don't use the `.` as in `read.csv()`) function to import the 'msw-generation-and-composition-by-income.csv' and assign it to an object with the name `waste_data`. **Tipp:** Combine the `read_csv()` with the `here()` function as we have done in the live coding exercise of week 3.
+1.  Use the `read_csv()` (**Note**: Watch out for the `_` don't use the `.` as in `read.csv()`) function to import the 'msw-generation-and-composition-by-income.csv' data from the "wk-04/data" directory and assign it to an object with the name `waste_data`. **Tipp:** Combine the `read_csv()` with the `here()` function as we have done in the live coding exercise of week 3.
 
 ```{r}
 
@@ -36,14 +36,14 @@ waste_data <- read_csv(here("wk-04/data/msw-generation-and-composition-by-income
 
 **Write the code yourself**
 
-1.  Starting with the `waste_data` object, use the pipe operator and the `mutate()` function to convert the `income_cat` variable from a variable of type character to a variable of type factor. Define the factor levels yourself and store them in a separate object with a name of your choice.
+1.  Starting with the `waste_data` object, use the pipe operator and the `mutate()` function to convert the `income_cat` variable from a variable of type character to a variable of type factor. Define the factor levels yourself and store them in a separate object with the name `levels_income_cat`\`.
 
-**Tipp:** First create a frequency table using the following code to identify the correct spelling of the categories in the variable `income_cat`.
+**Tipp:** First create a frequency table for the income categories using the following code to identify the correct spelling of the categories in the variable `income_cat`.
 
     waste_data |> 
       count(income_cat)
 
-2.  Assign the created dataframe to an object with a name of your choice.
+2.  Assign the created dataframe to an object with the name `waste_data_fct`.
 
 3.  Render and fix any errors
 
@@ -66,7 +66,7 @@ waste_data_fct <- waste_data |>
 
 **Write the code yourself**
 
-1.  Starting with the `waste_data` object, use the `pivot_longer()` function to convert the dataframe from a wide to a long format. Apply the following:
+1.  Starting with the `waste_data_fct` object, use the `pivot_longer()` function to convert the dataframe from a wide to a long format. Apply the following:
 
 -   bring all columns from `food_organic_waste` to `yard_garden_green_waste` into a long format
 -   send the variable names to a column named "waste_category"
@@ -99,7 +99,7 @@ waste_data_long <- read_rds(here("wk-04/data/msw-generation-and-composition-by-i
 
 **Write the code yourself**
 
-1.  Starting with `waste_data_long`, group the data by`income_cat` and the waste category variable, then create a summary table containing the mean of percentages (call this mean_percent) for each group.
+1.  Starting with `waste_data_long`, group the data by`income_cat` and `waste_category`, then create a summary table containing the mean of percentages (call this mean_percent) for each group.
 
 2.  Assign the created dataframe to an object with the name `waste_data_long_mean`.
 
@@ -113,7 +113,7 @@ waste_data_long_mean <- waste_data_long |>
 
 **Fill in the blanks**
 
-1.  Starting with the `waste_data_long_mean` object, execute the code and observe the output in the Console. Would you publish this table in a report in this format?
+1.  Starting with the `waste_data_long_mean` object, execute the code and observe the output in the Console. Would you publish this table in this format in a report?
 
 2.  Starting with the `waste_data_long_mean` object, use the pipe operator to add another line of code which uses the `pivot_wider()` function to bring the data from a long format into a wide format using names for variables from `waste_category` and corresponding values from `mean_percent`
 
@@ -148,6 +148,8 @@ waste_data_long_mean <- read_rds(here("wk-04/data/msw-generation-and-composition
 2.  Reproduce the plot that you see as an image below when you render the report and view the output in your Viewer tab in the bottom right window.
 
 **Hint:** To get those bars displayed next to each other, use the `geom_col()` function and apply the `position = position_dodge()` argument and value. The colors don't have to be exactly the same colours, just not the default color scale. As you know, I like my theming minimal.
+
+**Note:** The size of the plot will be diffrent. That is alright and does not need to match.
 
 ```{r}
 
