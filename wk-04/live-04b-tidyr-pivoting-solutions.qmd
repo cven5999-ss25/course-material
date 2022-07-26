@@ -11,6 +11,7 @@ execute:
 
 ```{r}
 library(tidyverse)
+library(gapminder)
 ```
 
 # tidyr: pivoting
@@ -59,8 +60,6 @@ gapminder_wide <- read_csv("https://raw.githubusercontent.com/swcarpentry/r-novi
 
 ```{r}
 
-library(gapminder)
-
 gapminder
 
 gapminder_wide 
@@ -94,19 +93,18 @@ gapminder_long <- gapminder_wide |>
 
 **Your turn**
 
-Using `gapminder_long`, calculate the mean life expectancy, population, and gdpPercap for each continent. **Hint:** use the `group_by()` and `summarize()` functions we learned in the `dplyr` lesson.
+1.  Using `gapminder_long`, calculate the mean life expectancy, population, and gdpPercap for each continent. **Hint:** use the `group_by()` and `summarize()` functions we learned in the `dplyr` lesson.
+2.  Assign the created dataframe to an object with the name `gapminder_long_summary`
 
 ```{r}
 
-gapminder_long |> 
+gapminder_long_summary <- gapminder_long |> 
   group_by(continent, obs_type) |> 
   summarise(means = mean(obs_value)) 
 
 # Want a readable table? Back to wide
 
-gapminder_long |> 
-  group_by(continent, obs_type) |> 
-  summarise(means = mean(obs_value)) |> 
+gapminder_long_summary |> 
   pivot_wider(names_from = obs_type,
               values_from = means) |> 
   knitr::kable(digits = 1)
