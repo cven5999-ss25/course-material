@@ -126,4 +126,3 @@ gapminder_normal <- gapminder_long |>
   arrange(country, year)
 
 ```
-
