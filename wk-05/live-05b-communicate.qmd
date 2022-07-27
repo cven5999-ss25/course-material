@@ -10,7 +10,6 @@ execute:
   eval: true
   echo: true
   warning: false
-bibliography: references.bib
 ---
 
 ```{r}

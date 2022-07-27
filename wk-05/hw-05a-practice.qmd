@@ -1,0 +1,60 @@
+---
+title: "Untitled"
+format: html
+editor: visual
+---
+
+# Exam Practice
+
+## Task 1.0 (0.5)
+
+1. Render the document and fix any errors.
+
+```{r}
+library(tidyverse)
+```
+
+## Task 1.1 (1)
+
+**Fill in the blanks**
+
+1. Use the `read_csv` function to import the following CSV file from the "data/raw_data/" directory:
+
+- `msw-generation-and-composition-by-income.csv`, and assign to the object `waste_data`
+
+2. Next to the code-chunk option `#| eval:` change the value from `false` to `true`
+
+```{r}
+waste_data <- ___(___)
+```
+
+## Task 1.2 (2)
+
+**Write the code yourself**
+
+1. Start with the `waste_data` object and use a function of your choice to create a subset that removes NAs from the variable that stores values for municipal solid waste generation.
+
+2. Use the pipe operator to add another line of code which uses the `mutate()` function to convert the `income_cat` variable from a variable of type character to a variable of type factor. Define the factor levels yourself.
+
+3. Store the result as a new object in your environment with the name `waste_generation_tidy` 
+ 
+```{r}
+
+
+```
+
+## Task 1.3 (4)
+
+**Write the code yourself**
+
+1. Use functions taught during the course to answer the following question for the `waste_generation_tidy` data object: 
+
+What is the minimum, mean, standard deviation, and maximum of the municipal solid waste generation grouped by income? Also add the count for the number of countries in each income category.
+
+2. Store the result as a new object in your environment with the name `waste_generation_tbl`. 
+
+```{r}
+
+```
+
+
