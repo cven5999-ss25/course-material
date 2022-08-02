@@ -64,4 +64,3 @@ Reproduce the plot that you see as an image below when you render the report and
 6.  Click on 'More' (the blue gear icon) in the menu bar above the file manager
 7.  Click on 'Export' and download the PDF file
 8.  Send the PDF by email to the course instructor
-

@@ -21,35 +21,30 @@ treatment <- read_csv(here("wk-05/hw-05a-practice/data/what_a_waste/what-a-waste
 
 ```
 
-# Task 3.1 
+# Task 3.1
 
 1.  Starting with the `treatment` data object, use functions taught during the course to answer the following question:
 
-How many cities are covered in this dataset? 
+How many cities are covered in this dataset?
 
 ```{r}
 
-treatment |> 
-  count(city)
+
 
 ```
 
-
-# Task 3.2 
+# Task 3.2
 
 1.  Starting with the `treatment` data object, use functions taught during the course to answer the following question:
 
-In how many cities is all waste (100%) openly dumped? 
+In how many cities is all waste (100%) openly dumped?
 
 ```{r}
 
-treatment |> 
-  filter(waste_treatment == "open_dump") |> 
-  filter(percent == 100)
 
 ```
 
-# Task 3.3 
+# Task 3.3
 
 1.  Starting with the `treatment` data object, use functions taught during the course to answer the following question:
 
@@ -61,7 +56,7 @@ How many cities in which no waste (0%) is recycled fall into each income categor
 
 ```
 
-# Task 3.4 
+# Task 3.4
 
 1.  Starting with the `treatment` data object, use functions taught during the course to answer the following question:
 
@@ -83,4 +78,3 @@ What is the mean, median, and standard deviation of treatment percentages for ea
 6.  Click on 'More' (the blue gear icon) in the menu bar above the file manager
 7.  Click on 'Export' and download the PDF file
 8.  Send the PDF by email to the course instructor
-
