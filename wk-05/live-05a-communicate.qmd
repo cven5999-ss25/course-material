@@ -31,7 +31,7 @@ library(countrycode)
 
 ## WDI R Package
 
-> "The WDI package allows users to search and download data from over 40 datasets hosted by the World Bank, including the World Development Indicators ('WDI'), International Debt Statistics, Doing Business, Human Capital Index, and Sub-national Poverty indicators." - [WDI R Package Documentation](https://vincentarelbundock.github.io/WDI/index.html) by [@WDI]
+> "The WDI package allows users to search and download data from over 40 datasets hosted by the World Bank, including the World Development Indicators ('WDI'), International Debt Statistics, Doing Business, Human Capital Index, and Sub-national Poverty indicators." - [WDI R Package Documentation](https://vincentarelbundock.github.io/WDI/index.html) by ___
 
 ## Selected indicator - "Youth Unemployment"
 
@@ -42,25 +42,36 @@ library(countrycode)
 ## Data search
 
 ```{r}
-WDIsearch("share of youth")
+
+WDIsearch("electricity") |> 
+  as_tibble()
+
+WDIsearch("gender") |> 
+  as_tibble()
+
+WDIsearch("share of youth") |> 
+  as_tibble()
 ```
 
-## Define parameters as vectors
+## Define indicators as vector
 
 ```{r}
-#| eval: false
-#| echo: false
 
-codelist |> 
-  select(iso2c, iso.name.en) 
-
-```
-
-```{r}
 selected_indicators <- c("SL.UEM.NEET.FE.ZS", 
                          "SL.UEM.NEET.MA.ZS")
 
-selected_countries_iso2c <- c("KE", "GH", "TR", "NP")
+```
+
+## Define selected countries as vector
+
+```{r}
+#| eval: true
+
+selected_countries_iso2c <- codelist |> 
+  select(iso2c, iso.name.en) |> 
+  filter(iso.name.en %in% c("Kenya", "Ghana", "Turkey", "Nepal")) |> 
+  pull(iso2c)
+
 ```
 
 ## Download data
