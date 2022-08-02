@@ -1,7 +1,7 @@
 ---
 title: "World Bank - World Development Indicators"
 subtitle: "Youth Unemployment"
-format: revealjs
+format: html
 editor: source
 editor_options: 
   chunk_output_type: console
@@ -43,14 +43,7 @@ library(countrycode)
 
 ```{r}
 
-WDIsearch("electricity") |> 
-  as_tibble()
 
-WDIsearch("gender") |> 
-  as_tibble()
-
-WDIsearch("share of youth") |> 
-  as_tibble()
 ```
 
 ## Define indicators as vector
@@ -65,12 +58,7 @@ selected_indicators <- c("SL.UEM.NEET.FE.ZS",
 ## Define selected countries as vector
 
 ```{r}
-#| eval: true
 
-selected_countries_iso2c <- codelist |> 
-  select(iso2c, iso.name.en) |> 
-  filter(iso.name.en %in% c("Kenya", "Ghana", "Turkey", "Nepal")) |> 
-  pull(iso2c)
 
 ```
 
@@ -79,14 +67,14 @@ selected_countries_iso2c <- codelist |>
 ```{r}
 #| cache: true
 
-youth_unemployment <- WDI(indicator = selected_indicators, 
-                          country = selected_countries_iso2c) |> 
-  as_tibble()
+
 ```
 
 ## Tidy data
 
 ```{r}
+#| eval: false
+
 youth_unemployment_tidy <- youth_unemployment  |> 
   rename(female = SL.UEM.NEET.FE.ZS,
          male = SL.UEM.NEET.MA.ZS) |> 
@@ -103,16 +91,10 @@ youth_unemployment_tidy <- youth_unemployment  |>
 ```{r}
 #| echo: false
 
-country_name <- youth_unemployment_tidy |> 
-  distinct(country) |> 
-  pull()
 
-min_max_year <- youth_unemployment_tidy |> 
-  summarise(max = max(year),
-            min = min(year))
 ```
 
-Data was analysed for `r length(country_name)` countries: `r knitr::combine_words(country_name)`. The temporal data coverage is from `r pull(min_max_year, min)` to `r pull(min_max_year, max)`.
+Data was analysed for ___ countries: ___. The temporal data coverage is from ___ to ___.
 
 ## Youth Unemployment
 
@@ -120,6 +102,7 @@ Unemployment rates are shown in @fig-unemployment.
 
 ```{r}
 #| echo: false
+#| eval: false
 #| fig-cap: "Youth unemployment rates in selected countries disaggregated by sex."
 #| label: fig-unemployment
 
@@ -141,6 +124,7 @@ Data for the latest available year is presented in @tbl-unemployment.
 
 ```{r}
 #| echo: false
+#| eval: false
 #| tbl-cap: "Youth unemployment rates (%) for the latest available year in selected countries and disaggregated by sex."
 #| label: tbl-unemployment
 
