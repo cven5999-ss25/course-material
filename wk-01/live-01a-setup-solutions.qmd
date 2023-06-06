@@ -8,9 +8,9 @@ editor_options:
 
 # Quarto
 
-This is a quarto document. It contains text and code. Text can be formatted using the GUI tools in visual editing mode or using markdown markup syntax in source editing mode.
+This is a quarto document. It contains text and code. Text can be formatted using the GUI tools in **visual editing mode** or using markdown markup syntax in **source editing mode**.
 
-You can find the complete documentation on the [Quarto website](https://quarto.org/)
+You can find the complete documentation on the [Quarto website](https://quarto.org/).
 
 ## R code-chunk
 
