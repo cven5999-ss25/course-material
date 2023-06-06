@@ -45,7 +45,6 @@ Once you imported the data, the next step in any data science lifecycle is the t
 
 gapminder 
 str(gapminder)
-?gapminder
 
 # Show View() function in Console
 
@@ -94,7 +93,7 @@ gapminder_summary_continent <- gapminder_yr_2007  |>
 
 Africa has the lowest life expectancy and greatest spread in life expectancy globally (compare @tbl-median-continent and @fig-boxplot-continent).
 
-**Goal:** Use a boxplot to visualize the median life expectancy by continent in 2007. In the same plot, use a jitter plot to visualise the spread of life expectancy for all countries.
+**Goal:** Use a boxplot with jittered points to visualize the median life expectancy and spread by continent in 2007.
 
 ```{r}
 #| label: fig-boxplot-continent
@@ -146,6 +145,16 @@ gapminder_summary_continent |>
 
 # Data communication
 
-Your rendered html file is a great data communication product. You will learn a bit later in the course how you could make it accessible to others as a website, but you could also just download and share the html file with a collaborator or render the document to 'pdf' or 'docx' formats.
+Your rendered html file is a great data communication product. You will learn a bit later in the course how you could make it accessible to others as a website, but you could also download and share the html file with a collaborator or render the document to 'pdf' or 'docx' formats.
 
 **Finale:** Render to PDF, download the PDF. Render to DOCX. Render to revealjs.
+
+# Stage, Commit & Push to GitHub
+
+This final section introduces the workflow you need to follow at the end of each live coding exercise, homework assignment, learning reflection. It ensures that all the changes you have made to files in this repository (folder) are synced with the version that is stored on GitHub. The steps will be described at the end of each of the files.
+
+1.  Open the Git pane in RStudio. It's in the top right corner in a separate tab.
+2.  **Stage** your changes by checking appropriate box next to all files (if you select one file with your mouse, you can then highlight them all with Ctrl + A on your keyboard and check all boxes)
+3.  Write a meaningful commit message (e.g. "Completed homework assignment 1b) in the **Commit message** box
+4.  Click **Commit**. Note that every commit needs to have a commit message associated with it.
+5.  Go to your course-material GitHub repo and refresh the page. You should see your commit message next to the updated files.
