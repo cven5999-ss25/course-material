@@ -52,3 +52,7 @@ resources
 
 # compressed files
 *.zip
+
+# R functions
+
+R/
