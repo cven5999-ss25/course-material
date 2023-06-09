@@ -121,7 +121,19 @@ my_colors <- c("#ED6D37", "#901C6C", "#18A5C5", "#A6CE8F")
 Aesthetic mappings are typically defined within the `ggplot()` function. Every geom that follows will use the same aesthetic mappings to visualise the data.
 
 ```{r}
+ggplot(data = global_waste_data_kg_year,
+       mapping = aes(x = gdp, 
+                     y = capita_kg_year,
+                     color = income_id,
+                     shape = income_id)) +
+  geom_point(size = 3, alpha = 3/4) +
+  geom_smooth(method = "lm", se = FALSE) +
+  
+  # https://scales.r-lib.org/reference/label_log.html
+  scale_x_log10(labels = scales::label_log(), limits = c(800, 150000))  +
+  scale_y_continuous(breaks = seq(0, 1400, 200), limits = c(0, 1400)) +
 
+  scale_color_manual(values = my_colors)
 
 ```
 
@@ -132,7 +144,23 @@ If we want to define a mapping for one geom only, then the aesthetic mappings mu
 global_waste_data_kg_year_filter <- global_waste_data_kg_year |> 
   filter(country_name %in% c("United States", "Switzerland", "Ghana", "Turkey", "Nepal", "Kenya"))
 
-
+ggplot(data = global_waste_data_kg_year,
+       mapping = aes(x = gdp, 
+                     y = capita_kg_year)) +
+  geom_point(size = 3, alpha = 3/4, 
+             mapping = aes(color = income_id,
+                           shape = income_id)) +
+  geom_smooth(method = "lm", 
+              se = FALSE, 
+              color = "gray20", 
+              linetype = "longdash") +
+  geom_label(data = global_waste_data_kg_year_filter,
+            mapping = aes(label = country_name)) +
+  
+  # https://scales.r-lib.org/reference/label_log.html
+  scale_x_log10(labels = scales::label_log(), limits = c(800, 150000))  +
+  scale_y_continuous(breaks = seq(0, 1400, 200), limits = c(0, 1400)) +
+  scale_color_manual(values = my_colors)
 
 ```
 
@@ -184,6 +212,16 @@ https://broom.tidymodels.org/articles/broom.html
 
 ```{r}
 
+lmfit <- lm(capita_kg_year ~ gdp, data = global_waste_data_kg_year)
+
+summary(lmfit)
+
+tidy(lmfit) |> 
+  knitr::kable(digits = 2)
+
+glance(lmfit) |> 
+  knitr::kable(digits = 2)
+
 
 
 ```
@@ -194,4 +232,12 @@ Let's add a table of contents, a date, and an author to the document.
 
 You can learn more about the options for HTML files in the Quarto documentation: https://quarto.org/docs/reference/formats/html.html
 
-And to learn more about creating citeable articles, read here: https://quarto.org/docs/authoring/create-citeable-articles.html
+And to learn more about using Quarton for scholarly writing: https://quarto.org/docs/authoring/title-blocks.html
+
+# Stage, Commit & Push to GitHub
+
+1.  Open the Git pane in RStudio. It's in the top right corner in a separate tab.
+2.  **Stage** your changes by checking appropriate box next to all files (if you select one file with your mouse, you can then highlight them all with Ctrl + A on your keyboard and check all boxes)
+3.  Write a meaningful commit message (e.g. "Completed homework assignment 1b) in the **Commit message** box
+4.  Click **Commit**. Note that every commit needs to have a commit message associated with it.
+5.  Go to your course-material GitHub repo and refresh the page. You should see your commit message next to the updated files.

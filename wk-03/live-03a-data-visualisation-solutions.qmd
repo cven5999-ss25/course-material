@@ -295,4 +295,12 @@ Let's add a table of contents, a date, and an author to the document.
 
 You can learn more about the options for HTML files in the Quarto documentation: https://quarto.org/docs/reference/formats/html.html
 
-And to learn more about creating citeable articles, read here: https://quarto.org/docs/authoring/create-citeable-articles.html
+And to learn more about using Quarton for scholarly writing: https://quarto.org/docs/authoring/title-blocks.html
+
+# Stage, Commit & Push to GitHub
+
+1.  Open the Git pane in RStudio. It's in the top right corner in a separate tab.
+2.  **Stage** your changes by checking appropriate box next to all files (if you select one file with your mouse, you can then highlight them all with Ctrl + A on your keyboard and check all boxes)
+3.  Write a meaningful commit message (e.g. "Completed homework assignment 1b) in the **Commit message** box
+4.  Click **Commit**. Note that every commit needs to have a commit message associated with it.
+5.  Go to your course-material GitHub repo and refresh the page. You should see your commit message next to the updated files.
