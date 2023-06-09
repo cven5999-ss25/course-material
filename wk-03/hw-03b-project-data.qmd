@@ -21,7 +21,7 @@ Some examples of popular and extensive Open Data repositories are:
 
 1.  Identify data that you are interested in. The requirements are:
 
--   small (\< 5 MB)
+-   small (maximum 8 variables/columns and 10000 rows/observations)
 -   in tabular format (ideally CSV file format, but XLSX is also okay)
 -   relevant to the wider topics of Global Engineering, Development, etc.
 
@@ -39,8 +39,6 @@ Upload your data to the "course-material" project on RStudio Cloud.
 2.  Click on 'Upload' (the file icon with the yellow arrow) in the menu bar above the file manager
 3.  Under 'Target directory', click on 'Browse...' and navigate to the 'data' folder
 4.  Under 'File to upload', click on 'Browse...' and navigate to the file that contains the data you have identified
-5.  Click on 'OK' and download the PDF file
+5.  Click on 'OK'
 
 ![](img/upload-data.png)
-
-
