@@ -171,12 +171,7 @@ ggplot(data = global_waste_data_kg_year,
   theme_minimal(base_size = 14) 
 ```
 
-# Task 5: Data communication
-
-1.  In the YAML header (i.e. the top of the document between the three dashes), replace `html` with `pdf`
-2.  Render and fix any errors
-
-# Task 6: Complete assignment
+# Task 5: Complete assignment
 
 ## Stage, Commit & Push to GitHub
 
