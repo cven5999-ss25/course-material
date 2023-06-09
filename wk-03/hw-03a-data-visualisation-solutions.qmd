@@ -1,9 +1,8 @@
 ---
 title: "Programming Exercise - Data Visualisation"
 author: "Lars Schöbitz"
-date: "2022-07-11"
 format:
-  pdf:
+  html:
     toc: true
 editor: visual
 execute:
@@ -137,11 +136,11 @@ Thank you for working through the previous tasks. I am convinced that you have d
 
 library(readr)
 
-gapminder_yr_2007 <- read_rds(here::here("wk-02/data/gapminder-yr-2007.rds"))
+gapminder_yr_2007 <- read_rds(here::here("wk-03/data/gapminder-yr-2007.rds"))
 
-gapminder_summary_continent_2007 <- read_rds(here::here("wk-02/data/gapminder-summary-continent-2007.rds"))
+gapminder_summary_continent_2007 <- read_rds(here::here("wk-03/data/gapminder-summary-continent-2007.rds"))
 
-gapminder_summary_continent_year <- read_rds(here::here("wk-02/data/gapminder-summary-continent-year.rds"))
+gapminder_summary_continent_year <- read_rds(here::here("wk-03/data/gapminder-summary-continent-year.rds"))
 
 ```
 
@@ -380,7 +379,7 @@ If you are interested in working with spatial data in R, then I recommend the fo
 **In the YAML header (between the three dashes at the top of the document)**
 
 1.  Add your name as the author of this document
-2.  Add the date of todays
+2.  Add the date of today
 3.  Add a table of contents
 4.  Render the document and fix any errors
 

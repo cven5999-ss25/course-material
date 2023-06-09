@@ -125,11 +125,11 @@ Thank you for working through the previous tasks. I am convinced that you have d
 
 library(readr)
 
-gapminder_yr_2007 <- read_rds(here::here("wk-02/data/gapminder-yr-2007.rds"))
+gapminder_yr_2007 <- read_rds(here::here("wk-03/data/gapminder-yr-2007.rds"))
 
-gapminder_summary_continent_2007 <- read_rds(here::here("wk-02/data/gapminder-summary-continent-2007.rds"))
+gapminder_summary_continent_2007 <- read_rds(here::here("wk-03/data/gapminder-summary-continent-2007.rds"))
 
-gapminder_summary_continent_year <- read_rds(here::here("wk-02/data/gapminder-summary-continent-year.rds"))
+gapminder_summary_continent_year <- read_rds(here::here("wk-03/data/gapminder-summary-continent-year.rds"))
 
 ```
 
