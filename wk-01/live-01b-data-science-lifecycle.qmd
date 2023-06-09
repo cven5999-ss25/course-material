@@ -10,6 +10,14 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r}
+#| label: load-packages
+
+library(gapminder) # R package that contains the data
+library(dplyr)
+library(ggplot2)
+```
+
 # Data import
 
 Data can be imported from many different sources. In this exercise, we import data from:
@@ -19,6 +27,10 @@ Data can be imported from many different sources. In this exercise, we import da
 ## Gapminder data
 
 The data is an [excerpt of the Gapminder data](https://www.gapminder.org/data/documentation/) on life expectancy, GDP per capita, and population by country. Compiled for the purpose of teaching with data until 2007. [It is not a definitive source of socioeconomic data and it is not updated](https://github.com/jennybc/gapminder).
+
+```{r}
+
+```
 
 # Data tidying
 
@@ -40,17 +52,46 @@ Once your data is tidy, a common first step is to transform it. This includes:
 
 **Goal:** Calculate the median life expectancy at birth by continent for 2007.
 
+```{r}
+#| eval: false
+
+gapminder_yr_2007 <- gapminder |> 
+  filter(year == ___)
+
+# Step 2: 
+# Group data by continent and calculate mean life expectancy
+# Store as new object: gapminder_summary_continent
+
+gapminder_summary_continent <- gapminder_yr_2007  |>
+  group_by(___) |> 
+  summarise(lifeExp = median(___))
+
+
+```
+
 # Data visualisation (and tables)
 
 ## Gapminder data
 
 Africa has the lowest life expectancy and greatest spread in life expectancy globally (compare @tbl-median-continent and @fig-boxplot-continent).
 
-**Goal:** Use a boxplot to visualize the median life expectancy by continent in 2007. In the same plot, use a jitter plot to visualise the spread of life expectancy for all countries.
+**Goal:** Use a boxplot with jittered points to visualize the median life expectancy by continent in 2007.
 
 ```{r}
 #| label: fig-boxplot-continent
 #| fig-cap: "Median life expectancy by continent in 2007. Each dot represents one individual country."
+#| eval: false
+
+library(ggplot2)
+
+ggplot(data = ___, 
+       mapping = aes(x = ___, 
+                     y = ___)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.1, alpha = 1/4, size = 3) +
+  labs(x = NULL,
+       y = "life expectancy") +
+  theme_minimal(base_size = 14) 
 
 
 ```
@@ -58,7 +99,6 @@ Africa has the lowest life expectancy and greatest spread in life expectancy glo
 ```{r}
 #| label: tbl-median-continent
 #| tbl-cap: "Median life expectancy by continent in 2007."
-
 
 ```
 

@@ -1,11 +1,6 @@
 ---
 title: "Live Coding - Data Science Lifecycle"
-format: 
-  pdf: default
-  docx: default
-  revealjs: default
-  html: 
-    toc: true
+format: html
 editor: visual
 self-contained: true
 execute:
@@ -14,6 +9,13 @@ execute:
 editor_options: 
   chunk_output_type: console
 ---
+
+```{r}
+#| label: load-packages
+library(gapminder)
+library(dplyr)
+library(ggplot2)
+```
 
 # Data import
 
@@ -26,11 +28,8 @@ Data can be imported from many different sources. In this exercise, we import da
 The data is an [excerpt of the Gapminder data](https://www.gapminder.org/data/documentation/) on life expectancy, GDP per capita, and population by country. Compiled for the purpose of teaching with data until 2007. [It is not a definitive source of socioeconomic data and it is not updated](https://github.com/jennybc/gapminder).
 
 ```{r}
-
-# load library, explain error and install in Console
-
-library(gapminder)
-
+gapminder 
+# Show View() function in Console
 ```
 
 # Data tidying
@@ -43,10 +42,7 @@ Once you imported the data, the next step in any data science lifecycle is the t
 
 # Take a look at the data
 
-gapminder 
 str(gapminder)
-
-# Show View() function in Console
 
 ```
 
@@ -66,10 +62,6 @@ Once your data is tidy, a common first step is to transform it. This includes:
 
 ```{r}
 
-# before loading library, write code 
-
-library(dplyr)
-
 # Step 1: 
 # Filter data for the year 2007. 
 # Store as new object: gapminder_yr_2007
@@ -81,7 +73,7 @@ gapminder_yr_2007 <- gapminder |>
 # Group data by continent and calculate mean life expectancy
 # Store as new object: gapminder_summary_continent
 
-gapminder_summary_continent <- gapminder_yr_2007  |>  
+gapminder_summary_continent <- gapminder_yr_2007  |>
   group_by(continent) |> 
   summarise(lifeExp = median(lifeExp))
 
@@ -93,7 +85,7 @@ gapminder_summary_continent <- gapminder_yr_2007  |>
 
 Africa has the lowest life expectancy and greatest spread in life expectancy globally (compare @tbl-median-continent and @fig-boxplot-continent).
 
-**Goal:** Use a boxplot with jittered points to visualize the median life expectancy and spread by continent in 2007.
+**Goal:** Use a boxplot with jittered points to visualize the median life expectancy by continent in 2007.
 
 ```{r}
 #| label: fig-boxplot-continent
@@ -116,7 +108,7 @@ library(ggplot2)
 ggplot(data = gapminder_yr_2007, 
        mapping = aes(x = continent, 
                      y = lifeExp)) +
-  geom_boxplot() + # google this
+  geom_boxplot() +
   geom_jitter(width = 0.1, alpha = 1/4, size = 3) +
   labs(x = NULL,
        y = "life expectancy") +
@@ -146,8 +138,6 @@ gapminder_summary_continent |>
 # Data communication
 
 Your rendered html file is a great data communication product. You will learn a bit later in the course how you could make it accessible to others as a website, but you could also download and share the html file with a collaborator or render the document to 'pdf' or 'docx' formats.
-
-**Finale:** Render to PDF, download the PDF. Render to DOCX. Render to revealjs.
 
 # Stage, Commit & Push to GitHub
 
