@@ -44,7 +44,7 @@ library(here)
 ```{r}
 #| eval: false
 
-___ <- read_csv(here("wk-01/data/country_level_data_0.csv"))
+___ <- read_csv(here("wk-02/data/country_level_data_0.csv"))
 ```
 
 # Task 2: Data tidying (and some transformation)
