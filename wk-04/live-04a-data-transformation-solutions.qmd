@@ -23,7 +23,7 @@ library(here)
 
 ```{r}
 
-sanitation <- read_csv(here("wk-03/data/jmp-washdata-indicators-safely-managed-sml.csv"))
+sanitation <- read_csv(here("wk-04/data/jmp-washdata-indicators-safely-managed-sml.csv"))
 
 ```
 
@@ -65,10 +65,10 @@ sanitation |>
   filter(residence == "national", iso3 == "SEN") 
 
 sanitation |> 
-  filter(iso3 == "GHA" | iso3 == "KEN" | iso3 == "TUR" | iso3 == "NPL")
+  filter(iso3 == "UGA" | iso3 == "GHA" | iso3 == "USA")
 
 sanitation |> 
-  filter(iso3 %in% c("GHA", "KEN", "TUR", "NPL"))
+  filter(iso3 %in% c("UGA", "GHA", "USA"))
 
 sanitation |> 
   filter(residence != "national")

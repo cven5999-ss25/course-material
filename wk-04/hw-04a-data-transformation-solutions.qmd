@@ -29,7 +29,7 @@ library(ggplot2)
 
 **Fill in the blanks**
 
-1.  Use the `read_csv()` function to import the 'country_level_data_0.csv' file from the wk-03/data folder by assigning it to an object name `global_waste_data`
+1.  Use the `read_csv()` function to import the 'country_level_data_0.csv' file from the wk-04/data folder by assigning it to an object name `global_waste_data`
 2.  Run the code contained in the code-chunk and fix any errors
 3.  Next to the code-chunk option `#| eval:` change the value from `false` to `true`
 4.  Render and fix any errors
@@ -37,7 +37,7 @@ library(ggplot2)
 ```{r}
 #| eval: true
 
-global_waste_data <- read_csv(here::here("wk-03/data/country_level_data_0.csv"))
+global_waste_data <- read_csv(here::here("wk-04/data/country_level_data_0.csv"))
 ```
 
 # Task 2: Data tidying
@@ -286,7 +286,7 @@ Thank you for working through the previous tasks. I am convinced that you have d
 1.  Run the code contained in the code-chunk and fix any errors
 
 ```{r}
-composition_tidy_capita_income_cat <- read_rds(here::here("wk-03/data/01-msw-generation-and-composition-by-income.rds"))
+composition_tidy_capita_income_cat <- read_rds(here::here("wk-04/data/01-msw-generation-and-composition-by-income.rds"))
 ```
 
 ### Part 1
@@ -485,8 +485,8 @@ The [`gt` R Package](https://gt.rstudio.com/index.html) is an extremely powerful
 # table_composition object and import it here, so that you can get the following
 # code to work as I intended.
 
-table_composition <- read_rds(here::here("wk-03/data/03-table-composition.rds"))
-table_msw_generation <-  read_rds(here::here("wk-03/data/02-table-msw-generation.rds"))
+table_composition <- read_rds(here::here("wk-04/data/03-table-composition.rds"))
+table_msw_generation <-  read_rds(here::here("wk-04/data/02-table-msw-generation.rds"))
 
 ```
 
@@ -537,7 +537,7 @@ table_msw_generation |>
 1.  In the YAML header, change the document format from `html` to `pdf`
 2.  Render the document
 3.  Open the 'Files' tab in the bottom right window
-4.  Navigate to the generated PDF: `wk-03/hw-03a-data-transformation.pdf`
+4.  Navigate to the generated PDF: `wk-04/hw-03a-data-transformation.pdf`
 5.  Tick the box next to the PDF file
 6.  Click on 'More' (the blue gear icon) in the menu bar above the file manager
 7.  Click on 'Export' and download the PDF file

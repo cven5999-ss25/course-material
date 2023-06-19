@@ -1,5 +1,5 @@
 ---
-title: "Homework Exercise - Project"
+title: "Capstone Project"
 format: html
 editor: visual
 editor_options: 
@@ -9,7 +9,7 @@ execute:
   warning: false
 ---
 
-# Project
+# Capstone Project
 
 Thank you for submitting your data. I have created a new directory titled "project" in the root directory of the course-material project. Please navigate to this directory using the file manager in the bottom right window.
 
