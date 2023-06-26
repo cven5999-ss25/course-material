@@ -1,6 +1,8 @@
 ---
 title: "Homework Exercise - Data transformation"
-format: html
+format:
+  html:
+    embed-resources: true
 editor: visual
 editor_options: 
   chunk_output_type: console
@@ -13,7 +15,7 @@ execute:
 
 ## Task descriptions and starter code
 
-You will notice that the descriptions of tasks are getting shorter with less detail provided. This is the case for all functions you have previously practised either in your homework or in live coding exercises in class. Tasks that are **fill in the blanks** exercises will also decrease.
+You will notice that the descriptions of tasks are getting shorter with less detail provided. This is the case for all functions you have previously practiced either in your homework or in live coding exercises in class. Tasks that are **fill in the blanks** exercises will also decrease.
 
 # Task 0: Load R packages
 

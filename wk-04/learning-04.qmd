@@ -1,7 +1,9 @@
 ---
 title: "Learning Reflection"
 subtitle: "Week 4"
-format: html
+format:
+  html:
+    embed-resources: true
 editor: visual
 ---
 

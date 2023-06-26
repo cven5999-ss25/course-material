@@ -1,6 +1,8 @@
 ---
 title: "Live Coding - Data transformation"
-format: html
+format:
+  html:
+    embed-resources: true
 editor: visual
 editor_options: 
   chunk_output_type: console
@@ -44,7 +46,7 @@ sanitation
 
 # Data wrangling with dplyr
 
-The `dplyr` R Paclage aims to provide a function for each basic verb of data manipulation. These verbs can be organised into three categories based on the component of the dataset that they work with:
+The `dplyr` R Package aims to provide a function for each basic verb of data manipulation. These verbs can be organised into three categories based on the component of the dataset that they work with:
 
 -   Rows
 -   Columns
