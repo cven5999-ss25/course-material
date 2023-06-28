@@ -24,7 +24,7 @@ library(here)
 
 **Write the code yourself**
 
-1.  Use the `read_csv()` (**Note**: Watch out for the `_` don't use the `.` as in `read.csv()`) function to import the 'msw-generation-and-composition-by-income.csv' data from the "wk-04/data" directory and assign it to an object with the name `waste_data`. **Tipp:** Combine the `read_csv()` with the `here()` function as we have done in the live coding exercise of week 3.
+1.  Use the `read_csv()` (**Note**: Watch out for the `_` don't use the `.` as in `read.csv()`) function to import the 'msw-generation-and-composition-by-income.csv' data from the "wk-05/data" directory and assign it to an object with the name `waste_data`. **Tipp:** Combine the `read_csv()` with the `here()` function as we have done in the live coding exercise of week 4.
 
 ```{r}
 
@@ -76,11 +76,11 @@ waste_data |>
 
 # Task 4: Summarise data
 
-As in the exercises for week 12, I have stored the data that I would have expected at this point and import it here.
+As in the exercises for week 4, I have stored the data that I would have expected at this point and import it here.
 
 ```{r}
 
-waste_data_long <- read_rds(here("wk-04/data/msw-generation-and-composition-by-income-long.rds"))
+waste_data_long <- read_rds(here("wk-05/data/msw-generation-and-composition-by-income-long.rds"))
 
 ```
 
@@ -91,7 +91,6 @@ waste_data_long <- read_rds(here("wk-04/data/msw-generation-and-composition-by-i
 2.  Assign the created dataframe to an object with the name `waste_data_long_mean`.
 
 ```{r}
-
 
 
 ```
@@ -120,11 +119,11 @@ waste_data_long_mean |>
 
 # Task 5: Data visualisation
 
-As in the exercises for week 12, I have stored the data that I would have expected at this point and import it here.
+As in the exercises for week 4, I have stored the data that I would have expected at this point and import it here.
 
 ```{r}
 
-waste_data_long_mean <- read_rds(here("wk-04/data/msw-generation-and-composition-by-income-long-mean.rds"))
+waste_data_long_mean <- read_rds(here("wk-05/data/msw-generation-and-composition-by-income-long-mean.rds"))
 
 ```
 
@@ -134,7 +133,7 @@ waste_data_long_mean <- read_rds(here("wk-04/data/msw-generation-and-composition
 
 **Hint:** To get those bars displayed next to each other, use the `geom_col()` function and apply the `position = position_dodge()` argument and value. The colors don't have to be exactly the same colours, just not the default color scale. As you know, I like my theming minimal.
 
-**Note:** The size of the plot will be diffrent. That is alright and does not need to match.
+**Note:** The size of the plot will be different. That is alright and does not need to match.
 
 ```{r}
 
@@ -145,11 +144,20 @@ waste_data_long_mean <- read_rds(here("wk-04/data/msw-generation-and-composition
 
 # Task 6: Complete assignment
 
-1.  In the YAML header, change the document format from `html` to `pdf`
-2.  Render the document
-3.  Open the 'Files' tab in the bottom right window
-4.  Navigate to the generated PDF: `wk-04/hw-04a-tidyr.pdf`
-5.  Tick the box next to the PDF file
-6.  Click on 'More' (the blue gear icon) in the menu bar above the file manager
-7.  Click on 'Export' and download the PDF file
-8.  Send the PDF by email to the course instructor
+## Stage, Commit & Push to GitHub
+
+1.  Open the Git pane in RStudio. It's in the top right corner in a separate tab.
+2.  **Stage** your changes by checking appropriate box next to all files (if you select one file with your mouse, you can then highlight them all with Ctrl + A on your keyboard and check all boxes)
+3.  Write a meaningful commit message (e.g. "Completed homework assignment 1b) in the **Commit message** box
+4.  Click **Commit**. Note that every commit needs to have a commit message associated with it.
+5.  Go to your course-material GitHub repo and refresh the page. You should see your commit message next to the updated files.
+
+## Open an issue on GitHub
+
+Once you have ensured that the Quarto document renders without errors and you have pushed all your changes to GitHub, it is to complete the assignment by opening an issue on your course-material GitHub repo.
+
+1.  Navigate to your course-material GitHub repo.
+2.  Click on **Issues**, and then **New issue** button.
+3.  Write a meaningful title in the **Title** field
+4.  Tag the course instructor with using the `@` sign in combination with `larnsce` as the username
+5.  Add any questions or comments
