@@ -1,12 +1,15 @@
 ---
 title: "Live coding exercise - Pivoting"
-format: html
+format:
+  html:
+    embed-resources: true
 editor: visual
 editor_options: 
   chunk_output_type: console
 execute:
   echo: true
   warning: false
+bibliography: references.bib
 ---
 
 ```{r}
@@ -18,7 +21,7 @@ library(gapminder)
 
 ## Example: Waste characterisation data
 
-The data for this exercise was generated as part of a course taught at ETH Zurich, Switzerland (https://rbtl-fs22.github.io/website/). A repository that contains all generated data is in preparation.
+The data for this exercise was generated as part of a course taught at ETH Zurich, Switzerland [@benaleya2022].
 
 The dataset contains the results of a waste characterisation study of public bins in Zurich, Switzerland. Waste was separated and weighed in kg for the following categories:
 
@@ -32,7 +35,7 @@ Additional metadata on location and type of bin is available.
 
 ```{r}
 
-waste_data <- read_delim(here::here("wk-04/data/rbtl_fs22_waste_composition_bellevue.csv"), delim = ";")
+waste_data <- read_delim(here::here("wk-05/data/rbtl_fs22_waste_composition_bellevue.csv"), delim = ";")
 
 ```
 
@@ -50,11 +53,11 @@ waste_data_long <- waste_data |>
 
 ## Example: Gapminder
 
-The following exercise is taken from @naupaka_zimmerman_2019_3265164.
+The following exercise is taken from @zimmerman2019.
 
 ```{r}
 
-gapminder_wide <- read_csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/main/data/gapminder_wide.csv")
+gapminder_wide <- read_csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/main/episodes/data/gapminder_wide.csv")
 
 ```
 
@@ -124,3 +127,5 @@ gapminder_normal <- gapminder_long |>
   arrange(country, year)
 
 ```
+
+# References

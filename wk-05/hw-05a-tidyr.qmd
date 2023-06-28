@@ -39,8 +39,10 @@ library(here)
 
 **Tipp:** First create a frequency table for the income categories using the following code to identify the correct spelling of the categories in the variable `income_cat`.
 
-    waste_data |> 
-      count(income_cat)
+```         
+waste_data |> 
+  count(income_cat)
+```
 
 2.  Assign the created dataframe to an object with the name `waste_data_fct`.
 

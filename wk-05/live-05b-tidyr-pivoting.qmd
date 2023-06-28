@@ -1,6 +1,8 @@
 ---
 title: "Live coding exercise - Pivoting"
-format: html
+format:
+  html:
+    embed-resources: true
 editor: visual
 editor_options: 
   chunk_output_type: console
@@ -19,7 +21,7 @@ library(gapminder)
 
 ## Example: Waste characterisation data
 
-The data for this exercise was generated as part of a course taught at ETH Zurich, Switzerland (https://rbtl-fs22.github.io/website/). A repository that contains all generated data is in preparation.
+The data for this exercise was generated as part of a course taught at ETH Zurich, Switzerland [@benaleya2022].
 
 The dataset contains the results of a waste characterisation study of public bins in Zurich, Switzerland. Waste was separated and weighed in kg for the following categories:
 
@@ -48,7 +50,7 @@ The following exercise is taken from [@zimmerman2019].
 
 ```{r}
 
-gapminder_wide <- read_csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/main/data/gapminder_wide.csv")
+gapminder_wide <- read_csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/main/episodes/data/gapminder_wide.csv")
 
 ```
 
@@ -79,3 +81,5 @@ gapminder_wide <- read_csv("https://raw.githubusercontent.com/swcarpentry/r-novi
 
 
 ```
+
+# References

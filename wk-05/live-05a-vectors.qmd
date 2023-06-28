@@ -1,6 +1,8 @@
 ---
 title: "Live coding exercise - Vectors"
-format: html
+format:
+  html:
+    embed-resources: true
 editor: visual
 editor_options: 
   chunk_output_type: console
