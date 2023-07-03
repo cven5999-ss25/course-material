@@ -536,11 +536,20 @@ table_msw_generation |>
 
 # Task 6: Complete assignment
 
-1.  In the YAML header, change the document format from `html` to `pdf`
-2.  Render the document
-3.  Open the 'Files' tab in the bottom right window
-4.  Navigate to the generated PDF: `wk-04/hw-03a-data-transformation.pdf`
-5.  Tick the box next to the PDF file
-6.  Click on 'More' (the blue gear icon) in the menu bar above the file manager
-7.  Click on 'Export' and download the PDF file
-8.  Send the PDF by email to the course instructor
+## Stage, Commit & Push to GitHub
+
+1.  Open the Git pane in RStudio. It's in the top right corner in a separate tab.
+2.  **Stage** your changes by checking appropriate box next to all files (if you select one file with your mouse, you can then highlight them all with Ctrl + A on your keyboard and check all boxes)
+3.  Write a meaningful commit message (e.g. "Completed homework assignment 1b) in the **Commit message** box
+4.  Click **Commit**. Note that every commit needs to have a commit message associated with it.
+5.  Go to your course-material GitHub repo and refresh the page. You should see your commit message next to the updated files.
+
+## Open an issue on GitHub
+
+Once you have ensured that the Quarto document renders without errors and you have pushed all your changes to GitHub, it is to complete the assignment by opening an issue on your course-material GitHub repo.
+
+1.  Navigate to your course-material GitHub repo.
+2.  Click on **Issues**, and then **New issue** button.
+3.  Write a meaningful title in the **Title** field
+4.  Tag the course instructor with using the `@` sign in combination with `larnsce` as the username
+5.  Add any questions or comments
