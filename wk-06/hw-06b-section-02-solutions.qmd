@@ -16,11 +16,11 @@ library(here)
 ```
 
 ```{r}
-generation <- read_csv(here("wk-05/hw-05a-practice/data/what_a_waste/what-a-waste-city-level-data-generation.csv"))
+generation <- read_csv(here("wk-06/data/what_a_waste/what-a-waste-city-level-data-generation.csv"))
 
-population <- read_csv(here("wk-05/hw-05a-practice/data/what_a_waste/what-a-waste-city-level-data-population.csv"))
+population <- read_csv(here("wk-06/data/what_a_waste/what-a-waste-city-level-data-population.csv"))
 
-country_income <- read_csv(here("wk-05/hw-05a-practice/data/what_a_waste/what-a-waste-city-level-data-country-income.csv"))
+country_income <- read_csv(here("wk-06/data/what_a_waste/what-a-waste-city-level-data-country-income.csv"))
 ```
 
 # Task 2.1
@@ -103,7 +103,7 @@ country_income <- read_csv(here("wk-05/hw-05a-practice/data/what_a_waste/what-a-
 
 ```{r}
 
-generation_country_income <- read_rds(here("wk-05/hw-05a-practice/data/what_a_waste/what-a-waste-city-level-data-country-income.rds"))
+generation_country_income <- read_rds(here("wk-06/data/what_a_waste/what-a-waste-city-level-data-country-income.rds"))
 
 ggplot(data = generation_country_income,
        mapping = aes(x = income_id, 

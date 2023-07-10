@@ -17,7 +17,7 @@ library(here)
 
 ```{r}
 
-treatment <- read_csv(here("wk-05/hw-05a-practice/data/what_a_waste/what-a-waste-city-level-data-treatment.csv"))
+treatment <- read_csv(here("wk-06/data/what_a_waste/what-a-waste-city-level-data-treatment.csv"))
 
 ```
 

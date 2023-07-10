@@ -19,7 +19,7 @@ library(here)
 
 **Fill in the blanks**
 
-1.  Use the `read_csv()` and `here()` functions to import the following two CSV files from the "wk-05/hw-05a-practice/data/what_a_waste/" directory:
+1.  Use the `read_csv()` and `here()` functions to import the following two CSV files from the "wk-06/data/what_a_waste/" directory:
 
 -   `what-a-waste-city-level-data.csv`, and assign to the object `city_data`
 -   `what-a-waste-city-level-data-distance.csv`, and assign to the object `distance`
