@@ -1,6 +1,6 @@
 # course-material
 
-This directory contains course material for  CVEN 5837: Special Topics - Data Analytics for Development. 
+This directory contains course material for  CVEN 5999: Special Topics - Data Analytics for Development. 
 
 The directory is structured by weeks (wk-01, wk-02, etc.). Each weekly directory contains templates for:
 
